@@ -54,23 +54,27 @@ function getID($Year, $Month, $Clinic){
  * @param  [type] $ptCount [description]
  * @return [type]          [description]
  */
-function putCount($Year, $Month, $Clinic, $ptCount){
-	$check = getCount($Year, $Month, $Clinic); // Returns null if not found.
-	if ($check==$putCount){
+try {
+	function putCount($Year, $Month, $Clinic, $ptCount){
+		$check = getCount($Year, $Month, $Clinic); // Returns null if not found.
+		if ($check!==$ptCount){
 
-	} else {
-		$id = getID($Year,$Month,$Clinic); // Returns null if not found.
-		// Manu: The replace function will insert a new record with
-		// a unique PK as id if one isn't found.
-		DB::replace('OnlineBookings', array(
-		  'id' => $id,
-		  'year' => $Year,
-		  'month' => $Month,
-		  'clinic' => $Clinic,
-		  'ptCount' => $ptCount
-		));
+			$id = getID($Year,$Month,$Clinic); // Returns null if not found.
+			// Manu: The replace function will insert a new record with
+			// a unique PK as id if one isn't found.
+			DB::replace('OnlineBookings', array(
+			  'id' => $id,
+			  'year' => $Year,
+			  'month' => $Month,
+			  'clinic' => $Clinic,
+			  'ptCount' => $ptCount
+			));
+		}
 	}
+} catch (Exception $e) {
+	echo $e;
 }
+
 function htmlNameFilter($Tag){
 	$codes = explode('_', $Tag);
 	return $codes;
@@ -85,7 +89,7 @@ foreach ($_POST as $name => $value) {
    $Y = intval(htmlNameFilter($name)[0]);
    $M = htmlNameFilter($name)[1];
    $C = htmlNameFilter($name)[2];
-   putCount($Y,$Mo,$C,intval($value));
+   putCount($Y,$M,$C,intval($value));
 }
 
 
