@@ -1,0 +1,51 @@
+
+  	Xdebug 	 
+  	XDEBUG EXTENSION FOR PHP | DOCUMENTATION | INSTALLATION
+home | updates | download | documentation | contributing | license | support | issue tracker
+
+If you like Xdebug, please consider giving a
+donation.
+
+Or Flattr this website: Flattr this
+Tailored Installation Instructions
+Summary
+Xdebug installed: no
+Server API: Apache 2.0 Handler
+Windows: no
+Zend Server: no
+PHP Version: 7.1.0
+Zend API nr: 320160303
+PHP API nr: 20160303
+Debug Build: no
+Thread Safe Build: no
+Configuration File Path: /Applications/MAMP/bin/php/php7.1.0/conf
+Configuration File: /Applications/MAMP/bin/php/php7.1.0/conf/php.ini
+Extensions directory: /Applications/MAMP/bin/php/php7.1.0/lib/php/extensions/no-debug-non-zts-20151012
+Instructions
+
+    Download xdebug-2.5.0.tgz
+    Unpack the downloaded file with tar -xvzf xdebug-2.5.0.tgz
+    Run: cd xdebug-2.5.0
+
+    Run: phpize (See the FAQ if you don't have phpize.
+
+    As part of its output it should show:
+
+    Configuring for:
+    ...
+    Zend Module Api No:      20160303
+    Zend Extension Api No:   320160303
+
+    If it does not, you are using the wrong phpize. Please follow this FAQ entry and skip the next step.
+    Run: ./configure
+    Run: make
+    Run: cp modules/xdebug.so /Applications/MAMP/bin/php/php7.1.0/lib/php/extensions/no-debug-non-zts-20151012
+    Edit /Applications/MAMP/bin/php/php7.1.0/conf/php.ini and add the line
+    zend_extension = /Applications/MAMP/bin/php/php7.1.0/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so
+    Restart the webserver
+
+If you like Xdebug, and thinks it saves you time and money, please have a look at the donation page.
+	 
+  	
+This site and all of its contents are Copyright © 2002-2017 by Derick Rethans.
+All rights reserved.
