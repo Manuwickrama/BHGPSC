@@ -58,7 +58,6 @@ try {
 	function putCount($Year, $Month, $Clinic, $ptCount){
 		$check = getCount($Year, $Month, $Clinic); // Returns null if not found.
 		if ($check!==$ptCount){
-
 			$id = getID($Year,$Month,$Clinic); // Returns null if not found.
 			// Manu: The replace function will insert a new record with
 			// a unique PK as id if one isn't found.
@@ -85,6 +84,7 @@ function put($y,$m,$c){
 }
 
 //var_dump($_POST);
+$inputNames;
 foreach ($_POST as $name => $value) {
    $Y = intval(htmlNameFilter($name)[0]);
    $M = htmlNameFilter($name)[1];
@@ -92,6 +92,7 @@ foreach ($_POST as $name => $value) {
    $V = intval($value);
    if ($Y!==0 && $V!==0){
 	putCount($Y,$M,$C,$V);
+	$inputNames[] = $name;
    }
 }
 ?>
