@@ -20,7 +20,7 @@
 	<input type="text" name="2013.Jan.GPSC" value="<?php put(2013,Jan,GPSC); ?>">
 
 	<!-- Manu: This input is hidden. Please add this to the bottom of the form. -->
-	<input type="submit" name="" value="submit" hidden>
+	<input type="submit" name="loading" value="submit" hidden>
 
 
 

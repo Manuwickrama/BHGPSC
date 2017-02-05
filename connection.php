@@ -84,18 +84,14 @@ function put($y,$m,$c){
 	echo getCount(intval($y),$m,$c);
 }
 
-
+//var_dump($_POST);
 foreach ($_POST as $name => $value) {
    $Y = intval(htmlNameFilter($name)[0]);
    $M = htmlNameFilter($name)[1];
    $C = htmlNameFilter($name)[2];
-   putCount($Y,$M,$C,intval($value));
+   $V = intval($value);
+   if ($Y!==0 && $V!==0){
+	putCount($Y,$M,$C,$V);
+   }
 }
-
-
-// foreach ($_POST as $name => $value) {
-//    echo $name; // email, for example
-//    echo $value; // the same as echo $_POST['email'], in this case
-// }
-//var_dump($_POST);
 ?>
