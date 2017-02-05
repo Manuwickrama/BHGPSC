@@ -78,9 +78,12 @@ function htmlNameFilter($Tag){
 	$codes = explode('_', $Tag);
 	return $codes;
 }
-
-function put($y,$m,$c){
-	echo getCount(intval($y),$m,$c);
+try {
+	function put($y,$m,$c){
+		echo getCount(intval($y),$m,$c);
+	}
+} catch (Exception $e) {
+	echo $e;
 }
 
 //var_dump($_POST);
