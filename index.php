@@ -27,25 +27,17 @@
 
 
 
+
 </form>
 <script type="text/javascript">
-var inputs = document.getElementsByTagName("input");
-for (x = 0 ; x < inputs.length ; x++){
-    myname = inputs[x].getAttribute("name");
-    if(myname.indexOf("20")==0){
-    	//document.write(myname);
-    	var codes = myname.split(".");
-    	var y = codes[0];
-    	var m = codes[1];
-    	var c = codes[2];
-    	document.getElementsByName(myname)[0].value = <?php put(
-    		2017,
-    		Jan,
-    		GPSC
-    		); ?>;
-       }
-    }
 
+<?php foreach ($inputNames as $key) {
+	# code...
+	$y = explode('_',$key)[0];
+	$m = explode('_',$key)[1];
+	$c = explode('_',$key)[2];
+
+} ?>
 document.getElementsByName('2017.Jan.GPSC')[0].value = <?php put(2017,Jan,GPSC); ?>;
 </script>
 

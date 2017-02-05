@@ -84,7 +84,7 @@ function put($y,$m,$c){
 }
 
 //var_dump($_POST);
-$inputNames;
+//Hello
 foreach ($_POST as $name => $value) {
    $Y = intval(htmlNameFilter($name)[0]);
    $M = htmlNameFilter($name)[1];
@@ -92,7 +92,6 @@ foreach ($_POST as $name => $value) {
    $V = intval($value);
    if ($Y!==0 && $V!==0){
 	putCount($Y,$M,$C,$V);
-	$inputNames[] = $name;
    }
 }
 ?>
