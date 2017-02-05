@@ -26,7 +26,7 @@ function getCount($Year, $Month, $Clinic){
 	$result = DB::queryFirstField(
 		"SELECT * FROM OnlineBookings WHERE year=%i0 AND month=%s1 AND clinic=%s2",$Year,$Month,$Clinic
 		);
-	echo $result;
+	return $result;
 }
 
 /**
@@ -72,8 +72,26 @@ function putCount($Year, $Month, $Clinic, $ptCount){
 	}
 }
 function htmlNameFilter($Tag){
-	$codes = explode('.', $Tag);
+	$codes = explode('_', $Tag);
 	return $codes;
 }
 
- ?>
+function put($y,$m,$c){
+	echo getCount(intval($y),$m,$c);
+}
+
+
+foreach ($_POST as $name => $value) {
+   $Y = intval(htmlNameFilter($name)[0]);
+   $M = htmlNameFilter($name)[1];
+   $C = htmlNameFilter($name)[2];
+   putCount($Y,$Mo,$C,intval($value));
+}
+
+
+// foreach ($_POST as $name => $value) {
+//    echo $name; // email, for example
+//    echo $value; // the same as echo $_POST['email'], in this case
+// }
+//var_dump($_POST);
+?>
