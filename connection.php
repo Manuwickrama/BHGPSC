@@ -193,7 +193,7 @@ foreach ($_POST as $name => $value) {
     $M = htmlNameFilter($name)[2];
     $C = htmlNameFilter($name)[3];
     $V = intval($value);
-    if ($Y!==0){ // Manu: Checking to see if Year value is a string to make sure we have the correct inputs.
+    if ($Y!==0 && is_numeric($value)){ // Manu: Checking to see if Year value is a string to make sure we have the correct inputs.
     	putCount($T,$Y,$M,$C,$V);
     }
 }
