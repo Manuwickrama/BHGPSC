@@ -19,15 +19,14 @@
 	<input type="text" name="2014.Jan.GPSC" value="<?php put(2014,Jan,GPSC); ?>">
 	<input type="text" name="2013.Jan.GPSC" value="<?php put(2013,Jan,GPSC); ?>">
 
+
+
+
+
+
+
 	<!-- Manu:3 This input is hidden. Please add this to the bottom of the form. -->
 	<input type="submit" name="loading" value="submit" hidden>
-
-
-
-
-
-
-
 </form>
 
 
