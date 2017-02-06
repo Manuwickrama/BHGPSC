@@ -105,30 +105,31 @@ try {
 
 //plotData(ob,2017,Jan);
 function plotData($t,$y,$m){
-	echo "{\n";
-	echo "month: ".$y."  ".$m.",\n";
+	echo "{";
+	echo "month: '".$y."  ".$m."',";
 	$gpscfigure = getCount($t,$y,$m,'GPSC');
 	$smccfigure = getCount($t,$y,$m,'SMC');
 	$bhmcfigure = getCount($t,$y,$m,'BHMC');
-	echo "BHGPSC: ".$gpscfigure.",\n";
-	echo "SMC: ".$smccfigure.",\n";
-	echo "BHMC: ".$bhmcfigure."\n";
+	echo "BHGPSC: ".$gpscfigure.",";
+	echo "SMC: ".$smccfigure.",";
+	echo "BHMC: ".$bhmcfigure."";
 	echo "}";
 }
 
+plotDataArray();
 function plotDataArray(){
 	$plotPoints = DB::query("SELECT * FROM OnlineBookings");
 	//var_dump($plotPoints);
 	foreach ($plotPoints as $key => $value) {
 		# code...
-		echo $key;
-		foreach ($value as $k => $v) {
-			# code...
-			echo $v;
-		}
+		$y = $value['year'];
+		$m = $value['month'];
+		$t = $value['type'];
+		plotData($t,$y,$m);
+		echo ",";
 	}
 }
-plotDataArray();
+
 
 /**
  * Manu: This is the loop that updates/inserts the database records.
