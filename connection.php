@@ -104,6 +104,13 @@ try {
 }
 
 //plotData(ob,2017,Jan);
+/**
+ * Manu: Function to generate a single plot data sample.
+ * @param  string $t Type or Table
+ * @param  int $y Year
+ * @param  string $m Month
+ * @return string    Plot Data Sample
+ */
 function plotData($t,$y,$m){
 	echo "{";
 	$mInt = monthIntoInt($m);
@@ -125,7 +132,12 @@ function plotData($t,$y,$m){
 	echo "BHMC: ".$bhmcfigure;
 	echo "}";
 }
-
+/**
+ * Manu: Function to convert Month strings into int values.
+ * Int values were required by the plot.
+ * @param  string $Month Month by Code
+ * @return int    Month as Int
+ */
 function monthIntoInt($Month){
 	switch ($Month) {
     case "Jan":
@@ -168,6 +180,12 @@ function monthIntoInt($Month){
 }
 
 //plotDataArray();
+/**
+ * Manu: Function to Query the entire data for a particular "Type".
+ * It will print out the entire plot data set for the javascript plot used.
+ * @param  string $Type Name for the table
+ * @return string       Plot points string
+ */
 function plotDataArray($Type){
 	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 ORDER BY year DESC, month DESC", $Type);
 	//var_dump($plotPoints);
