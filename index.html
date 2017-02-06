@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><!-- Manu:1 Add this PhP file to your page. -->
+<head><!-- Manu:1 Add this PhP to your page. -->
     <?php require_once('connection.php'); ?>
 
     <meta charset="utf-8">
@@ -34,8 +34,8 @@
 </head>
 
 <body>
-    <!-- Manu:4 Encapsulate everything in this form heading. -->
-    <form id="form1" name="form1" method="POST" enctype="multipart/form-data" action="">
+    <!-- Manu:2 Encapsulate everything in this form heading. -->
+    <form method="POST" enctype="multipart/form-data" action="">
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -172,7 +172,8 @@
                                             <tbody>
                                                 <tr>
                                                     <td><b>Broken Hill GP Super Clinic</b></td>
-                                                    <!-- Manu:2 All Input tags need a name like below and respective php tags. 
+                                                    <!-- Manu:3 All Input tags need a name like below and respective php tags. This enitire block can be easily included in one function call if needed.
+                                                    
                                                     Any input fields with the following "name" attribute (tag) will be entred into DB.
                                                     The PHP component outputs the Patient Count for the requested stat.-->
                                                     <td><input type="text" name="shs.2016.Jul.GPSC" value="<?php put(shs,2016,Jul,GPSC); ?>"></td>
@@ -320,6 +321,10 @@
         element: 'combined-shs-201617',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
+        // 
+        
+        // Manu:4 The below function will auto generate plot data so there's no need to
+        // do it again.
         data: [<?php plotDataArray(); ?>],
         xkey: 'month',
         ykeys: ['BHGPSC', 'SMC', 'BHMC'],
