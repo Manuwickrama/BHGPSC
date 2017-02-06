@@ -73,12 +73,23 @@ try {
 } catch (Exception $e) {
 	echo $e;
 }
-
+/**
+ * Manu: Function that filters the Name tag of inputs.
+ * @param  string $Tag input Name tag
+ * @return array      array of input Name tags
+ */
 function htmlNameFilter($Tag){
 	$codes = explode('_', $Tag);
 	return $codes;
 }
 try {
+	/**
+	 * Manu: Function that is used in HTML (only) to output Patient Count.
+	 * @param  string $y Year as string
+	 * @param  string $m Month
+	 * @param  string $c Clinic Code
+	 * @return int    Patient Count
+	 */
 	function put($y,$m,$c){
 		echo getCount(intval($y),$m,$c);
 	}
@@ -86,8 +97,12 @@ try {
 	echo $e;
 }
 
+
+/**
+ * Manu: This is the loop that updates/inserts the database records.
+ * @var POST
+ */
 //var_dump($_POST);
-//Hello
 foreach ($_POST as $name => $value) {
    $Y = intval(htmlNameFilter($name)[0]);
    $M = htmlNameFilter($name)[1];
@@ -97,4 +112,6 @@ foreach ($_POST as $name => $value) {
 	putCount($Y,$M,$C,$V);
    }
 }
+
 ?>
+
