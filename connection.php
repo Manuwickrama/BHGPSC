@@ -193,7 +193,7 @@ foreach ($_POST as $name => $value) {
     $M = htmlNameFilter($name)[2];
     $C = htmlNameFilter($name)[3];
     $V = intval($value);
-    if ($Y!==0 && $V!==0){
+    if ($Y!==0){
     	putCount($T,$Y,$M,$C,$V);
     }
 }
