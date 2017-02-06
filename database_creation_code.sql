@@ -1,3 +1,4 @@
+-- First create a New database with the name "GenieStat".
 CREATE TABLE `GenieStat`.`OnlineBookings` ( `ptCount` INT NULL COMMENT
 'Number of Patients' , `id` INT NOT NULL AUTO_INCREMENT COMMENT
 'Primary Key' , `year` INT NOT NULL COMMENT 'Year' , `month` ENUM('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec')
