@@ -112,11 +112,11 @@ function plotData($t,$y,$m){
 	$bhmcfigure = getCount($t,$y,$m,'BHMC');
 	echo "BHGPSC: ".$gpscfigure.",";
 	echo "SMC: ".$smccfigure.",";
-	echo "BHMC: ".$bhmcfigure."";
+	echo "BHMC: ".$bhmcfigure;
 	echo "}";
 }
 
-plotDataArray();
+//plotDataArray();
 function plotDataArray(){
 	$plotPoints = DB::query("SELECT * FROM OnlineBookings");
 	//var_dump($plotPoints);
