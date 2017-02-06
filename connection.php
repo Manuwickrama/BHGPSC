@@ -53,11 +53,11 @@ try {
  * to the criteria. If it finds that the record has no changes,
  * it will not do anything.
  * @param  string $Type   Type of Stat
- * @param  [type] $Year    [description]
- * @param  [type] $Month   [description]
- * @param  [type] $Clinic  [description]
- * @param  [type] $ptCount [description]
- * @return [type]          [description]
+ * @param  int $Year    Year
+ * @param  string $Month   Month code
+ * @param  string $Clinic  Clinic code
+ * @param  int $ptCount Patient count
+ * @return none          none
  */
 	function putCount($Type,$Year,$Month,$Clinic,$ptCount){
 		$check = getCount($Type,$Year,$Month,$Clinic); // Returns null if not found.

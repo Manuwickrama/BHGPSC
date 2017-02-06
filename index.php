@@ -12,7 +12,7 @@
 
 	<!-- Manu:2 All Input tags need a name like below and respective php tags. 
 	Any input fields with the following "name" attribute (tag) will be entred into DB.
-	The PHP component outputs the Patient Count for the requested stat.-->
+	The PHP component outputs the Patient Count for the requested stat. You-->
 	<input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>">
 	<input type="text" name="ob.2016.Jan.GPSC" value="<?php put(ob,2016,Jan,GPSC); ?>">
 	<input type="text" name="ob.2015.Jan.GPSC" value="<?php put(ob,2015,Jan,GPSC); ?>">
