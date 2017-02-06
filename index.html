@@ -320,67 +320,7 @@
         element: 'combined-shs-201617',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2016-07',
-            BHGPSC: 42,
-            SMC: 48,
-            BHMC: 11
-        }, {
-            month: '2016-08',
-            BHGPSC: 40,
-            SMC: 66,
-            BHMC: 2
-        }, {
-            month: '2016-09',
-            BHGPSC: 0,
-            SMC: 0,
-            BHMC: null
-        }, {
-            month: '2016-10',
-            BHGPSC: 0,
-            SMC: 0,
-            BHMC: null
-        }, {
-            month: '2016-11',
-            BHGPSC: 0,
-            SMC: 0,
-            BHMC: null
-        }, {
-            month: '2016-12',
-            BHGPSC: 1,
-            SMC: 0,
-            BHMC: null
-        }, {
-            month: '2017-01',
-            BHGPSC: null,
-            SMC: null,
-            BHMC: null
-        }, {
-            month: '2017-02',
-            BHGPSC: null,
-            SMC: null,
-            BHMC: null
-        }, {
-            month: '2017-03',
-            BHGPSC: null,
-            SMC: null,
-            BHMC: null
-        }, {
-            month: '2017-04',
-            BHGPSC: null,
-            SMC: null,
-            BHMC: null
-        }, {
-            month: '2017-05',
-            BHGPSC: null,
-            SMC: null,
-            BHMC: null
-        }, {
-            month: '2017-06',
-            BHGPSC: null,
-            SMC: null,
-            BHMC: null
-        },],
+        data: [<?php plotDataArray(); ?>],
         xkey: 'month',
         ykeys: ['BHGPSC', 'SMC', 'BHMC'],
         labels: ['BHGPSC', 'SMC', 'BHMC'],

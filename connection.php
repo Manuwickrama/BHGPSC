@@ -106,19 +106,70 @@ try {
 //plotData(ob,2017,Jan);
 function plotData($t,$y,$m){
 	echo "{";
-	echo "month: '".$y."  ".$m."',";
+	$mInt = monthIntoInt($m);
+	echo "month: '".$y."-".$mInt."',";
 	$gpscfigure = getCount($t,$y,$m,'GPSC');
+	if ($gpscfigure===0) {
+		$gpscfigure = 'null';
+	}
 	$smccfigure = getCount($t,$y,$m,'SMC');
+	if ($smccfigure===0) {
+		$smccfigure = 'null';
+	}
 	$bhmcfigure = getCount($t,$y,$m,'BHMC');
+	if ($bhmcfigure===0) {
+		$bhmcfigure = 'null';
+	}
 	echo "BHGPSC: ".$gpscfigure.",";
 	echo "SMC: ".$smccfigure.",";
 	echo "BHMC: ".$bhmcfigure;
 	echo "}";
 }
 
+function monthIntoInt($Month){
+	switch ($Month) {
+    case "Jan":
+        return 1;
+        break;
+    case "Feb":
+        return 2;
+        break;
+    case "Mar":
+        return 3;
+        break;
+    case "Apr":
+        return 4;
+        break;
+    case "May":
+        return 5;
+        break;
+    case "Jun":
+        return 6;
+        break;
+    case "Jul":
+        return 7;
+        break;
+    case "Aug":
+        return 8;
+        break;
+    case "Sep":
+        return 9;
+        break;
+    case "Oct":
+        return 10;
+        break;
+    case "Nov":
+        return 11;
+        break;
+    case "Dec":
+        return 12;
+        break;
+	}
+}
+
 //plotDataArray();
 function plotDataArray(){
-	$plotPoints = DB::query("SELECT * FROM OnlineBookings");
+	$plotPoints = DB::query("SELECT * FROM OnlineBookings ORDER BY year DESC, month DESC");
 	//var_dump($plotPoints);
 	foreach ($plotPoints as $key => $value) {
 		# code...
