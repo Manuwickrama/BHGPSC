@@ -23,7 +23,7 @@ DB::$dbName = 'GenieStat';
  * @param  enum $Clinic GPSC,SMC,BHMC
  * @return int         Patient Count
  */
-function getCount($Type,$Year, $Month, $Clinic){
+function getCount($Type,$Year,$Month,$Clinic){
 	$result = DB::queryFirstField(
 		"SELECT * FROM OnlineBookings WHERE type= %s0 AND year=%i1 AND month=%s2 AND clinic=%s3",$Type,$Year,$Month,$Clinic
 		);
@@ -39,9 +39,9 @@ function getCount($Type,$Year, $Month, $Clinic){
  * @param  enum $Clinic GPSC,SMC,BHMC
  * @return int         id as PK
  */
-function getID($Type,$Year, $Month, $Clinic){
+function getID($Type,$Year,$Month,$Clinic){
 	$result = DB::queryFirstRow(
-		"SELECT * FROM OnlineBookings WHERE type= %s0 AND year=%i1 AND month=%s2 AND clinic=%s3",$Type,$Year, $Month, $Clinic
+		"SELECT * FROM OnlineBookings WHERE type= %s0 AND year=%i1 AND month=%s2 AND clinic=%s3",$Type,$Year,$Month,$Clinic
 		);
 	return $result['id'];
 }
@@ -60,7 +60,7 @@ try {
  * @return [type]          [description]
  */
 	function putCount($Type,$Year,$Month,$Clinic,$ptCount){
-		$check = getCount($Type,$Year, $Month, $Clinic); // Returns null if not found.
+		$check = getCount($Type,$Year,$Month,$Clinic); // Returns null if not found.
 		if ($check!==$ptCount){
 			$id = getID($Type,$Year,$Month,$Clinic); // Returns null if not found.
 			// Manu: The replace function will insert a new record with
@@ -116,7 +116,8 @@ foreach ($_POST as $name => $value) {
     $C = htmlNameFilter($name)[3];
     $V = intval($value);
     if ($Y!==0 && $V!==0){
-	 putCount($T,$Y,$M,$C,$V);
+    	echo $T.$M;
+    	putCount($T,$Y,$M,$C,$V);
     }
 }
 
