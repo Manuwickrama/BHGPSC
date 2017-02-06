@@ -5,3 +5,5 @@ NOT NULL COMMENT 'Month' , `clinic` ENUM('GPSC','SMC','BHMC') NOT NULL
 COMMENT 'Clinic Code' , `timestamp` TIMESTAMP on update
 CURRENT_TIMESTAMP() NOT NULL DEFAULT CURRENT_TIMESTAMP() COMMENT 'TimeStamp' , PRIMARY KEY (`id`)) ENGINE = InnoDB COMMENT = 'Online
 Bookings Patient Count Table';
+
+-- Please make sure you compose this code as a single line before you run it.
