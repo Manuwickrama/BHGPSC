@@ -168,8 +168,8 @@ function monthIntoInt($Month){
 }
 
 //plotDataArray();
-function plotDataArray(){
-	$plotPoints = DB::query("SELECT * FROM OnlineBookings ORDER BY year DESC, month DESC");
+function plotDataArray($Type){
+	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 ORDER BY year DESC, month DESC", $Type);
 	//var_dump($plotPoints);
 	foreach ($plotPoints as $key => $value) {
 		# code...

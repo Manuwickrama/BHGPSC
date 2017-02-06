@@ -173,7 +173,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td><b>Broken Hill GP Super Clinic</b></td>
-                                                    <!-- Manu:3 All Input tags need a name like below and respective php tags. This enitire block can be easily included in one function call if needed.
+                                                    <!-- Manu:3 All Input tags need a name like below and respective php tags. This enitire block can be easily included in one function call if needed. "shs" is the data on this page.
 
                                                     Any input fields with the following "name" attribute (tag) will be entred into DB.
                                                     The PHP component outputs the Patient Count for the requested stat.-->
@@ -325,8 +325,9 @@
         // 
         
         // Manu:4 The below function will auto generate plot data so there's no need to
-        // do it again.
-        data: [<?php plotDataArray(); ?>],
+        // do it again. Note we are calling the "shs" plot points. Give each graph a unique code like
+        // "shs".
+        data: [<?php plotDataArray('shs'); ?>],
         xkey: 'month',
         ykeys: ['BHGPSC', 'SMC', 'BHMC'],
         labels: ['BHGPSC', 'SMC', 'BHMC'],
