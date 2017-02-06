@@ -32,7 +32,7 @@
 <script type="text/javascript">
 
 
-document.getElementsByName('2017.Jan.GPSC')[0].value = <?php put(2017,Jan,GPSC); ?>;
+//document.getElementsByName('2017.Jan.GPSC')[0].value = <?php put(2017,Jan,GPSC); ?>;
 </script>
 
 </body>
