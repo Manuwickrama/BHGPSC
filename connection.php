@@ -103,6 +103,32 @@ try {
 	echo $e;
 }
 
+//plotData(ob,2017,Jan);
+function plotData($t,$y,$m){
+	echo "{\n";
+	echo "month: ".$y."  ".$m.",\n";
+	$gpscfigure = getCount($t,$y,$m,'GPSC');
+	$smccfigure = getCount($t,$y,$m,'SMC');
+	$bhmcfigure = getCount($t,$y,$m,'BHMC');
+	echo "BHGPSC: ".$gpscfigure.",\n";
+	echo "SMC: ".$smccfigure.",\n";
+	echo "BHMC: ".$bhmcfigure."\n";
+	echo "}";
+}
+
+function plotDataArray(){
+	$plotPoints = DB::query("SELECT * FROM OnlineBookings");
+	//var_dump($plotPoints);
+	foreach ($plotPoints as $key => $value) {
+		# code...
+		echo $key;
+		foreach ($value as $k => $v) {
+			# code...
+			echo $v;
+		}
+	}
+}
+plotDataArray();
 
 /**
  * Manu: This is the loop that updates/inserts the database records.
@@ -116,10 +142,10 @@ foreach ($_POST as $name => $value) {
     $C = htmlNameFilter($name)[3];
     $V = intval($value);
     if ($Y!==0 && $V!==0){
-    	echo $T.$M;
     	putCount($T,$Y,$M,$C,$V);
     }
 }
+
 
 ?>
 

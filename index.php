@@ -8,16 +8,19 @@
 	<title>Title</title>
 </head>
 <body id="main" onload="">
+<!-- Manu:4 Encapsulate everything in this form heading. -->
 <form id="form1" name="form1" method="POST" enctype="multipart/form-data" action="">
 
 	<!-- Manu:2 All Input tags need a name like below and respective php tags. 
 	Any input fields with the following "name" attribute (tag) will be entred into DB.
-	The PHP component outputs the Patient Count for the requested stat. You-->
+	The PHP component outputs the Patient Count for the requested stat.-->
 	<input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>">
 	<input type="text" name="ob.2016.Jan.GPSC" value="<?php put(ob,2016,Jan,GPSC); ?>">
 	<input type="text" name="ob.2015.Jan.GPSC" value="<?php put(ob,2015,Jan,GPSC); ?>">
 	<input type="text" name="ob.2014.Jan.GPSC" value="<?php put(ob,2014,Jan,GPSC); ?>">
 	<input type="text" name="ob.2013.Jan.GPSC" value="<?php put(ob,2013,Jan,GPSC); ?>">
+
+
 
 
 

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><!-- Manu:1 Add this PhP file to your page. -->
+    <?php require_once('connection.php'); ?>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Vapour Statistics - Dashboard</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Manu:4 Encapsulate everything in this form heading. -->
+    <form id="form1" name="form1" method="POST" enctype="multipart/form-data" action="">
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Vapour Statistics</a>
+            </div>
+            <div class="navbar-pagetitle">
+                <h3>DASHBOARD
+                <small>Overview</small></h3>
+            </div>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#bhgpsc"><i class="fa fa-fw fa-arrows-v"></i> BHGPSC <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="bhgpsc" class="collapse">
+                            <li>
+                                <a href="new-pt-bhgpsc.html">New Patient Statistics</a>
+                            </li>
+                            <li>
+                                <a href="ob-stats-bhgpsc.html">Online Booking Statistics</a>
+                            </li>
+                            <li>
+                                <a href="shs-bhgpsc.html">Shared Health Summary Stats</a>
+                            </li>
+                            <li>
+                                <a href="tap-bhgpsc.html">Total Active Patients</a>
+                            </li>
+                        </ul>
+                    </li><!-- bhgpsc -->
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#smc"><i class="fa fa-fw fa-arrows-v"></i> SMC <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="smc" class="collapse">
+                            <li>
+                                <a href="new-pt-smc.html">New Patient Statistics</a>
+                            </li>
+                            <li>
+                                <a href="ob-stats-smc.html">Online Booking Statistics</a>
+                            </li>
+                            <li>
+                                <a href="shs-smc.html">Shared Health Summary Stats</a>
+                            </li>
+                            <li>
+                                <a href="tap-smc.html">Total Active Patients</a>
+                            </li>
+                        </ul>
+                    </li><!-- smc -->
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#bhmc"><i class="fa fa-fw fa-arrows-v"></i> BHMC <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="bhmc" class="collapse">
+                            <li>
+                                <a href="new-pt-bhmc.html">New Patient Statistics</a>
+                            </li>
+                            <li>
+                                <a href="ob-stats-bhmc.html">Online Booking Statistics</a>
+                            </li>
+                            <li>
+                                <a href="shs-bhmc.html">Shared Health Summary Stats</a>
+                            </li>
+                            <li>
+                                <a href="tap-bhmc.html">Total Active Patients</a>
+                            </li>
+                        </ul>
+                    </li><!-- bhmc -->
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#combined"><i class="fa fa-fw fa-arrows-v"></i> Combined <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="combined" class="collapse">
+                            <li>
+                                <a href="new-pt-comb.html">New Patient Statistics</a>
+                            </li>
+                            <li>
+                                <a href="ob-stats-comb.html">Online Booking Statistics</a>
+                            </li>
+                            <li>
+                                <a href="shs-comb.html">Shared Health Summary Stats</a>
+                            </li>
+                            <li>
+                                <a href="tap-comb.html">Total Active Patients</a>
+                            </li>
+                        </ul>
+                    </li><!-- combined -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                  
+                </div>
+                <!-- /.row -->
+
+				<div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                    <h3 class="panel-title">Focus Area - Combined Shared Health Summary Uploads : July 2016 -> June 2017</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Site</th>
+                                                    <th>Jul-16</th>
+                                                    <th>Aug-16</th>
+                                                    <th>Sep-16</th>
+                                                    <th>Oct-16</th>
+                                                    <th>Nov-16</th>
+                                                    <th>Dec-16</th>
+                                                    <th>Jan-17</th>
+                                                    <th>Feb-17</th>
+                                                    <th>Mar-17</th>
+                                                    <th>Apr-17</th>
+                                                    <th>May-17</th>
+                                                    <th>Jun-17</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><b>Broken Hill GP Super Clinic</b></td>
+                                                    <!-- Manu:2 All Input tags need a name like below and respective php tags. 
+                                                    Any input fields with the following "name" attribute (tag) will be entred into DB.
+                                                    The PHP component outputs the Patient Count for the requested stat.-->
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>South Medical Centre</b></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Broken Hill Medical Centre</b></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td style="background-color:#e09199;"><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td style="background-color:#e09199;"><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td style="background-color:#e09199;"><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td style="background-color:#e09199;"><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td style="background-color:#e09199;"><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td style="background-color:#e09199;"><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td style="background-color:#e09199;"><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td style="background-color:#e09199;"><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td style="background-color:#e09199;"><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                    <td style="background-color:#e09199;"><input type="text" name="ob.2017.Jan.GPSC" value="<?php put(ob,2017,Jan,GPSC); ?>"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- table responsive -->    
+                                <div id="combined-shs-201617" style="width:100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Broken Hill GP Super Clinic</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <a href="new-pt-bhgpsc.html" class="list-group-item">New Patient Statistics</a>
+                                        <a href="ob-stats-bhgpsc.html" class="list-group-item">Online Booking Statistics</a>
+                                        <a href="shs-bhgpsc.html" class="list-group-item">Shared Health Summary Statistics</a>
+                                        <a href="tap-bhgpsc.html" class="list-group-item">Total Active Patients</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">South Medical Centre</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <a href="new-pt-smc.html" class="list-group-item">New Patient Statistics</a>
+                                        <a href="ob-stats-smc.html" class="list-group-item">Online Booking Statistics</a>
+                                        <a href="shs-smc.html" class="list-group-item">Shared Health Summary Statistics</a>
+                                        <a href="tap-smc.html" class="list-group-item">Total Active Patients</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Broken Hill Medical Centre</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <a href="new-pt-bhmc.html" class="list-group-item">New Patient Statistics</a>
+                                        <a href="ob-stats-bhmc.html" class="list-group-item">Online Booking Statistics</a>
+                                        <a href="shs-bhmc.html" class="list-group-item">Shared Health Summary Statistics</a>
+                                        <a href="tap-bhmc.html" class="list-group-item">Total Active Patients</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-yellow">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Combined</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <a href="new-pt-comb.html" class="list-group-item">New Patient Statistics</a>
+                                        <a href="ob-stats-comb.html" class="list-group-item">Online Booking Statistics</a>
+                                        <a href="shs-comb.html" class="list-group-item">Shared Health Summary Statistics</a>
+                                        <a href="tap-comb.html" class="list-group-item">Total Active Patients</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+    <script type="text/javascript">
+        // Combiuned New Patient Line Chart 2015
+    var months = ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+
+    Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'combined-shs-201617',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [{
+            month: '2016-07',
+            BHGPSC: 42,
+            SMC: 48,
+            BHMC: 11
+        }, {
+            month: '2016-08',
+            BHGPSC: 40,
+            SMC: 66,
+            BHMC: 2
+        }, {
+            month: '2016-09',
+            BHGPSC: 0,
+            SMC: 0,
+            BHMC: null
+        }, {
+            month: '2016-10',
+            BHGPSC: 0,
+            SMC: 0,
+            BHMC: null
+        }, {
+            month: '2016-11',
+            BHGPSC: 0,
+            SMC: 0,
+            BHMC: null
+        }, {
+            month: '2016-12',
+            BHGPSC: 1,
+            SMC: 0,
+            BHMC: null
+        }, {
+            month: '2017-01',
+            BHGPSC: null,
+            SMC: null,
+            BHMC: null
+        }, {
+            month: '2017-02',
+            BHGPSC: null,
+            SMC: null,
+            BHMC: null
+        }, {
+            month: '2017-03',
+            BHGPSC: null,
+            SMC: null,
+            BHMC: null
+        }, {
+            month: '2017-04',
+            BHGPSC: null,
+            SMC: null,
+            BHMC: null
+        }, {
+            month: '2017-05',
+            BHGPSC: null,
+            SMC: null,
+            BHMC: null
+        }, {
+            month: '2017-06',
+            BHGPSC: null,
+            SMC: null,
+            BHMC: null
+        }, ],
+        xkey: 'month',
+        ykeys: ['BHGPSC', 'SMC', 'BHMC'],
+        labels: ['BHGPSC', 'SMC', 'BHMC'],
+        lineColors: ['#e64a19', '#4caf50', '#38b4ee'],
+        smooth: false,
+        resize: true
+    });
+    </script>
+
+    <!-- Flot Charts JavaScript -->
+    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
+    <script src="js/plugins/flot/jquery.flot.js"></script>
+    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="js/plugins/flot/flot-data.js"></script>
+
+    <!-- Manu:3 This input is hidden. Please add this to the bottom of the form. -->
+    <input type="submit" name="loading" value="submit" hidden>
+    </form>
+</body>
+
+</html>
