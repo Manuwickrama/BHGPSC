@@ -60,6 +60,10 @@ try {
  * @return none          none
  */
 	function putCount($Type,$Year,$Month,$Clinic,$ptCount){
+		$clinics = array('GPSC','SMC','BHMC');
+		if (!in_array($Clinic,$clinics)) {
+			echo $Clinic." is not a valid Clinic code, try GPSC,SMC,BHMC";
+		}
 		$check = getCount($Type,$Year,$Month,$Clinic); // Returns null if not found.
 		if ($check!==$ptCount){
 			$id = getID($Type,$Year,$Month,$Clinic); // Returns null if not found.
@@ -97,7 +101,7 @@ try {
 	 * @return int    Patient Count
 	 */
 	function put($t,$y,$m,$c){
-		echo getCount($t,intval($y),$m,$c);
+		echo number_format(getCount($t,intval($y),$m,$c));
 	}
 } catch (Exception $e) {
 	echo $e;
@@ -245,24 +249,28 @@ function monthIntoInt($Month){
 
 
 
-/**
- * Manu: This is the loop that updates/inserts the database records.
- * @var POST
- */
-//var_dump($_POST);
-foreach ($_POST as $name => $value) {
-	$T = htmlNameFilter($name)[0];
-    $Y = intval(htmlNameFilter($name)[1]);
-    $M = htmlNameFilter($name)[2];
-    $C = htmlNameFilter($name)[3];
-    $V = intval($value);
-    if ($Y!==0 && is_numeric($value)){ // Manu: Checking to see if Year value is a string to make sure we have the correct inputs.
-    	putCount($T,$Y,$M,$C,$V);
-    } else {
-    	if ($Y!==0 && $value==='') { // Manu: Mofified to enter '0' for Patient Count when field is left blank.
-    		putCount($T,$Y,$M,$C,0);
-    	}
-    }
+try {
+	/**
+	 * Manu: This is the loop that updates/inserts the database records.
+	 * @var POST
+	 */
+	//var_dump($_POST);
+	foreach ($_POST as $name => $value) {
+		$T = htmlNameFilter($name)[0];
+	    $Y = intval(htmlNameFilter($name)[1]);
+	    $M = htmlNameFilter($name)[2];
+	    $C = htmlNameFilter($name)[3];
+	    $V = intval($value);
+	    if ($Y!==0 && is_numeric($value)){ // Manu: Checking to see if Year value is a string to make sure we have the correct inputs.
+	    	putCount($T,$Y,$M,$C,$V);
+	    } else {
+	    	if ($Y!==0 && $value==='') { // Manu: Mofified to enter '0' for Patient Count when field is left blank.
+	    		putCount($T,$Y,$M,$C,0);
+	    	}
+	}
+}
+} catch (Exception $e) {
+	echo "Error submitting values :".$e;
 }
 
 
