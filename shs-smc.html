@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+    <!-- Manu:1 Add this PhP to your page. This needs to be in every page you use SQL data. -->
+    <?php require_once('connection.php'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -167,35 +168,35 @@
                                             <thead>
                                                 <tr>
                                                     <th>Site</th>
-                                                    <th>Jul-16</th>
-                                                    <th>Aug-16</th>
-                                                    <th>Sep-16</th>
-                                                    <th>Oct-16</th>
-                                                    <th>Nov-16</th>
-                                                    <th>Dec-16</th>
                                                     <th>Jan-17</th>
                                                     <th>Feb-17</th>
                                                     <th>Mar-17</th>
                                                     <th>Apr-17</th>
                                                     <th>May-17</th>
                                                     <th>Jun-17</th>
+                                                    <th>Jul-17</th>
+                                                    <th>Aug-17</th>
+                                                    <th>Sep-17</th>
+                                                    <th>Oct-17</th>
+                                                    <th>Nov-17</th>
+                                                    <th>Dec-17</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td><b>South Medical Centre</b></td>
-                                                    <td>48</td>
-                                                    <td>66</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
+                                                    <td><?php put(shs,2017,Jan,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Feb,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Mar,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Apr,SMC); ?></td>
+                                                    <td><?php put(shs,2017,May,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Jun,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Jul,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Aug,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Sep,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Oct,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Nov,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Dec,SMC); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -237,45 +238,11 @@
         element: 'smc-shs-201617',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2016-07',
-            uploads: 48
-        }, {
-            month: '2016-08',
-            uploads: 66
-        }, {
-            month: '2016-09',
-            uploads: 0
-        }, {
-            month: '2016-10',
-            uploads: 0
-        }, {
-            month: '2016-11',
-            uploads: 0
-        }, {
-            month: '2016-12',
-            uploads: 0
-        }, {
-            month: '2017-01',
-            uploads: null
-        }, {
-            month: '2017-02',
-            uploads: null
-        }, {
-            month: '2017-03',
-            uploads: null
-        }, {
-            month: '2017-04',
-            uploads: null
-        }, {
-            month: '2017-05',
-            uploads: null
-        }, {
-            month: '2017-06',
-            uploads: null
-        }, ],
+        // Manu: plotDataPerClinic() function only outputs a single column of plot data "{month: 2017-1, BHGPSC: 1},"
+        data: [<?php plotDataPerClinic('shs',2017,'SMC'); ?>],
         xkey: 'month',
-        ykeys: ['uploads'],
+        // Manu: Changed 'uploads' from ykeys to 'GPSC'. Same convention, fewer errors.
+        ykeys: ['SMC'],
         labels: ['Shared Health Summaries Uploaded'],
         lineColors: ['#4caf50'],
         smooth: false,

@@ -133,6 +133,18 @@ function plotData($t,$y,$m){
 	echo "}";
 }
 
+function plotDataSingle($t,$y,$m,$c){
+	echo "{";
+	$mInt = monthIntoInt($m);
+	echo "month: '".$y."-".$mInt."',";
+	$firgure = getCount($t,$y,$m,$c);
+	if ($firgure===0) {
+		$firgure = 'null';
+	}
+	echo $c.": ".$firgure;
+	echo "}";
+}
+
 //plotDataArray('shs',2017);
 /**
  * Manu: Function to Query the entire data for a particular "Type".
@@ -149,6 +161,20 @@ function plotDataArray($Type,$Year){
 		$m = $value['month'];
 		$t = $value['type'];
 		plotData($t,$y,$m);
+		echo ",";
+	}
+}
+//plotDataPerClinic('shs',2017,'BHMC');
+//plotDataPerClinic('shs',2017,'GPSC');
+function plotDataPerClinic($Type,$Year,$Clinic){
+	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 AND year=%i1 AND clinic=%s2 ORDER BY month", $Type, $Year, $Clinic);
+	//var_dump($plotPoints);
+	foreach ($plotPoints as $key => $value) {
+		# code...
+		$y = $value['year'];
+		$m = $value['month'];
+		$t = $value['type'];
+		plotDataSingle($t,$y,$m,$Clinic);
 		echo ",";
 	}
 }
