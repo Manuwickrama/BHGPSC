@@ -133,15 +133,15 @@ function plotData($t,$y,$m){
 	echo "}";
 }
 
-//plotDataArray();
+//plotDataArray('shs',2017);
 /**
  * Manu: Function to Query the entire data for a particular "Type".
  * It will print out the entire plot data set for the javascript plot used.
  * @param  string $Type Name for the table
  * @return string       Plot points string
  */
-function plotDataArray($Type){
-	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 ORDER BY year DESC, month DESC", $Type);
+function plotDataArray($Type,$Year){
+	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 AND year=%i1 ORDER BY month", $Type, $Year);
 	//var_dump($plotPoints);
 	foreach ($plotPoints as $key => $value) {
 		# code...
@@ -216,6 +216,10 @@ foreach ($_POST as $name => $value) {
     $V = intval($value);
     if ($Y!==0 && is_numeric($value)){ // Manu: Checking to see if Year value is a string to make sure we have the correct inputs.
     	putCount($T,$Y,$M,$C,$V);
+    } else {
+    	if ($Y!==0 && $value==='') { // Manu: Mofified to enter '0' for Patient Count when field is left blank.
+    		putCount($T,$Y,$M,$C,0);
+    	}
     }
 }
 
