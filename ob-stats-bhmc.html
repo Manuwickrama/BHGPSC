@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+    <!-- Manu:1 Add this PhP to your page. This needs to be in every page you use SQL data. -->
+    <?php require_once('connection.php'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -159,7 +160,7 @@
                     <div class="col-lg-12">
                         <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">BHMC Online Booking - 2015</h3>
+                                    <h3 class="panel-title">BHMC Online Booking - 2017</h3>
                                 </div>
                                 <div class="panel-body">
                                     <div class="table-responsive">
@@ -184,18 +185,18 @@
                                             <tbody>
                                                 <tr>
                                                     <td><b>Broken Hill Medical Centre</b></td>
-                                                    <td>9</td>
-                                                    <td>21</td>
-                                                    <td>20</td>
-                                                    <td>21</td>
-                                                    <td>27</td>
-                                                    <td>28</td>
-                                                    <td>30</td>
-                                                    <td>31</td>
-                                                    <td>28</td>
-                                                    <td>21</td>
-                                                    <td>30</td>
-                                                    <td>52</td>
+                                                    <td><?php put(ob,2017,Jan,BHMC); ?></td>
+                                                    <td><?php put(ob,2017,Feb,BHMC); ?></td>
+                                                    <td><?php put(ob,2017,Mar,BHMC); ?></td>
+                                                    <td><?php put(ob,2017,Apr,BHMC); ?></td>
+                                                    <td><?php put(ob,2017,May,BHMC); ?></td>
+                                                    <td><?php put(ob,2017,Jun,BHMC); ?></td>
+                                                    <td><?php put(ob,2017,Jul,BHMC); ?></td>
+                                                    <td><?php put(ob,2017,Aug,BHMC); ?></td>
+                                                    <td><?php put(ob,2017,Sep,BHMC); ?></td>
+                                                    <td><?php put(ob,2017,Oct,BHMC); ?></td>
+                                                    <td><?php put(ob,2017,Nov,BHMC); ?></td>
+                                                    <td><?php put(ob,2017,Dec,BHMC); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -238,18 +239,18 @@
                                             <tbody>
                                                 <tr>
                                                     <td><b>Broken Hill Medical Centre</b></td>
-                                                    <td>30</td>
-                                                    <td>60</td>
-                                                    <td>16</td>
-                                                    <td>17</td>
-                                                    <td>30</td>
-                                                    <td>11</td>
-                                                    <td>11</td>
-                                                    <td>5</td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
+                                                    <td><?php put(ob,2016,Jan,BHMC); ?></td>
+                                                    <td><?php put(ob,2016,Feb,BHMC); ?></td>
+                                                    <td><?php put(ob,2016,Mar,BHMC); ?></td>
+                                                    <td><?php put(ob,2016,Apr,BHMC); ?></td>
+                                                    <td><?php put(ob,2016,May,BHMC); ?></td>
+                                                    <td><?php put(ob,2016,Jun,BHMC); ?></td>
+                                                    <td><?php put(ob,2016,Jul,BHMC); ?></td>
+                                                    <td><?php put(ob,2016,Aug,BHMC); ?></td>
+                                                    <td><?php put(ob,2016,Sep,BHMC); ?></td>
+                                                    <td><?php put(ob,2016,Oct,BHMC); ?></td>
+                                                    <td><?php put(ob,2016,Nov,BHMC); ?></td>
+                                                    <td><?php put(ob,2016,Dec,BHMC); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -291,45 +292,9 @@
         element: 'bhmc-ob-2015',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2015-01',
-            patients: 9
-        }, {
-            month: '2015-02',
-            patients: 21
-        }, {
-            month: '2015-03',
-            patients: 20
-        }, {
-            month: '2015-04',
-            patients: 21
-        }, {
-            month: '2015-05',
-            patients: 27
-        }, {
-            month: '2015-06',
-            patients: 28
-        }, {
-            month: '2015-07',
-            patients: 30
-        }, {
-            month: '2015-08',
-            patients: 31
-        }, {
-            month: '2015-09',
-            patients: 28
-        }, {
-            month: '2015-10',
-            patients: 21
-        }, {
-            month: '2015-11',
-            patients: 30
-        }, {
-            month: '2015-12',
-            patients: 52
-        }, ],
+        data: [<?php plotDataPerClinic('ob',2017,'BHMC'); ?>],
         xkey: 'month',
-        ykeys: ['patients'],
+        ykeys: ['BHMC'],
         labels: ['Booked Online'],
         lineColors: ['#38b4ee'],
         smooth: false,
@@ -346,45 +311,9 @@
         element: 'bhmc-ob-2016',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2016-01',
-            patients: 30
-        }, {
-            month: '2016-02',
-            patients: 60
-        }, {
-            month: '2016-03',
-            patients: 16
-        }, {
-            month: '2016-04',
-            patients: 17
-        }, {
-            month: '2016-05',
-            patients: 30
-        }, {
-            month: '2016-06',
-            patients: 11
-        }, {
-            month: '2016-07',
-            patients: 11
-        }, {
-            month: '2016-08',
-            patients: 5
-        }, {
-            month: '2016-09',
-            patients: null
-        }, {
-            month: '2016-10',
-            patients: null
-        }, {
-            month: '2016-11',
-            patients: null
-        }, {
-            month: '2016-12',
-            patients: null
-        }, ],
+        data: [<?php plotDataPerClinic('ob',2016,'BHMC'); ?>],
         xkey: 'month',
-        ykeys: ['patients'],
+        ykeys: ['BHMC'],
         labels: ['Booked Online'],
         lineColors: ['#38b4ee'],
         smooth: false,

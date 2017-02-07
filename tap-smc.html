@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+    <!-- Manu:1 Add this PhP to your page. This needs to be in every page you use SQL data. -->
+    <?php require_once('connection.php'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -122,7 +123,7 @@
                                 <a href="shs-comb.html">Shared Health Summary Stats</a>
                             </li>
                             <li>
-                                <a href="tap-combined.html">Total Active Patients</a>
+                                <a href="tap-comb.html">Total Active Patients</a>
                             </li>
                         </ul>
                     </li><!-- combined -->
@@ -184,18 +185,18 @@
                                             <tbody>
                                                 <tr>
                                                     <td><b>South Medical Centre</b></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td>2,522</td>
-                                                    <td>2,585</td>
-                                                    <td>2,641</td>
-                                                    <td>2,732</td>
-                                                    <td>2,824</td>
-                                                    <td>2,864</td>
-                                                    <td>2,928</td>
-                                                    <td>2,988</td>
-                                                    <td>3,073</td>
-                                                    <td>3,110</td>
-                                                    <td>3,157</td>
+                                                    <td><?php put(tap,2017,Jan,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Feb,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Mar,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Apr,SMC); ?></td>
+                                                    <td><?php put(tap,2017,May,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Jun,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Jul,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Aug,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Sep,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Oct,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Nov,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Dec,SMC); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -237,45 +238,9 @@
         element: 'smc-tap-2016',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2016-01',
-            patients: null
-        }, {
-            month: '2016-02',
-            patients: 2522
-        }, {
-            month: '2016-03',
-            patients: 2585
-        }, {
-            month: '2016-04',
-            patients: 2641
-        }, {
-            month: '2016-05',
-            patients: 2732
-        }, {
-            month: '2016-06',
-            patients: 2824
-        }, {
-            month: '2016-07',
-            patients: 2864
-        }, {
-            month: '2016-08',
-            patients: 2928
-        }, {
-            month: '2016-09',
-            patients: 2988
-        }, {
-            month: '2016-10',
-            patients: 3073
-        }, {
-            month: '2016-11',
-            patients: 3110
-        }, {
-            month: '2016-12',
-            patients: 3157
-        }, ],
+        data: [<?php plotDataPerClinic('tap',2017,'SMC'); ?>],
         xkey: 'month',
-        ykeys: ['patients'],
+        ykeys: ['SMC'],
         labels: ['Total Active Patients'],
         lineColors: ['#4caf50'],
         smooth: false,

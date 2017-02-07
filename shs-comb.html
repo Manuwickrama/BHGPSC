@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <!-- Manu:1 Add this PhP to your page. This needs to be in every page you use SQL data. -->
+    <?php require_once('connection.php'); ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,14 +11,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Vapour Statistics - Combined Shared Health Summary Stats</title>
+    <title>Vapour Statistics - Dashboard</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
-
+    
     <!-- Morris Charts CSS -->
     <link href="css/plugins/morris.css" rel="stylesheet">
 
@@ -33,7 +35,8 @@
 </head>
 
 <body>
-
+    <!-- Manu:2 Encapsulate everything in this form heading. -->
+    <form method="POST" enctype="multipart/form-data" action="">
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -49,13 +52,13 @@
                 <a class="navbar-brand" href="index.html">Vapour Statistics</a>
             </div>
             <div class="navbar-pagetitle">
-                <h3>COMBINED
-                <small>Shared Health Summaries Uploaded</small></h3>
+                <h3>DASHBOARD
+                <small>Overview</small></h3>
             </div>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
+                    <li class="active">
                         <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
@@ -118,7 +121,7 @@
                             <li>
                                 <a href="ob-stats-comb.html">Online Booking Statistics</a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="shs-comb.html">Shared Health Summary Stats</a>
                             </li>
                             <li>
@@ -137,108 +140,157 @@
 
                 <!-- Page Heading -->
                 <div class="row">
-                    
+                  
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">What is this?</h3>
-                                </div>
-                                <div class="panel-body">
-                                    This page will highlight patients who have had a Shared Health Summary uploaded at the all three practice. The overall number will be the total number of Shared Health Summaries uploaded to date. 
-                                </div>
+                            <div class="panel-heading">
+                                    <h3 class="panel-title">Focus Area - Combined Shared Health Summary Uploads : July 2016 -> June 2017</h3>
                             </div>
-                    </div>
-                </div><!-- info panel -->
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-yellow">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Combined Shared Health Summary Uploads : July 2016 -> June 2017</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="table-responsive">
+                            <div class="panel-body">
+                                <div class="table-responsive">
                                         <table class="table table-bordered table-hover table-striped">
                                             <thead>
                                                 <tr>
                                                     <th>Site</th>
-                                                    <th>Jul-16</th>
-                                                    <th>Aug-16</th>
-                                                    <th>Sep-16</th>
-                                                    <th>Oct-16</th>
-                                                    <th>Nov-16</th>
-                                                    <th>Dec-16</th>
                                                     <th>Jan-17</th>
                                                     <th>Feb-17</th>
                                                     <th>Mar-17</th>
                                                     <th>Apr-17</th>
                                                     <th>May-17</th>
                                                     <th>Jun-17</th>
+                                                    <th>Jul-17</th>
+                                                    <th>Aug-17</th>
+                                                    <th>Sep-17</th>
+                                                    <th>Oct-17</th>
+                                                    <th>Nov-17</th>
+                                                    <th>Dec-17</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td><b>Broken Hill GP Super Clinic</b></td>
-                                                    <td>42</td>
-                                                    <td>40</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
-                                                    <td>1</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
+                                                    <!-- Manu:3 These PhP codes only read data from that database, so they will only output the value.
+                                                    The PHP component outputs the Patient Count for the requested stat.-->
+                                                    <td><?php put(shs,2017,Jan,GPSC); ?></td>
+                                                    <td><?php put(shs,2017,Feb,GPSC); ?></td>
+                                                    <td><?php put(shs,2017,Mar,GPSC); ?></td>
+                                                    <td><?php put(shs,2017,Apr,GPSC); ?></td>
+                                                    <td><?php put(shs,2017,May,GPSC); ?></td>
+                                                    <td><?php put(shs,2017,Jun,GPSC); ?></td>
+                                                    <td><?php put(shs,2017,Jul,GPSC); ?></td>
+                                                    <td><?php put(shs,2017,Aug,GPSC); ?></td>
+                                                    <td><?php put(shs,2017,Sep,GPSC); ?></td>
+                                                    <td><?php put(shs,2017,Oct,GPSC); ?></td>
+                                                    <td><?php put(shs,2017,Nov,GPSC); ?></td>
+                                                    <td><?php put(shs,2017,Dec,GPSC); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>South Medical Centre</b></td>
-                                                    <td>48</td>
-                                                    <td>66</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
+                                                    <td><?php put(shs,2017,Jan,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Feb,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Mar,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Apr,SMC); ?></td>
+                                                    <td><?php put(shs,2017,May,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Jun,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Jul,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Aug,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Sep,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Oct,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Nov,SMC); ?></td>
+                                                    <td><?php put(shs,2017,Dec,SMC); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Broken Hill Medical Centre</b></td>
-                                                    <td>11</td>
-                                                    <td>2</td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
+                                                    <td><?php put(shs,2017,Jan,BHMC); ?></td>
+                                                    <td><?php put(shs,2017,Feb,BHMC); ?></td>
+                                                    <td><?php put(shs,2017,Mar,BHMC); ?></td>
+                                                    <td><?php put(shs,2017,Apr,BHMC); ?></td>
+                                                    <td><?php put(shs,2017,May,BHMC); ?></td>
+                                                    <td><?php put(shs,2017,Jun,BHMC); ?></td>
+                                                    <td><?php put(shs,2017,Jul,BHMC); ?></td>
+                                                    <td><?php put(shs,2017,Aug,BHMC); ?></td>
+                                                    <td><?php put(shs,2017,Sep,BHMC); ?></td>
+                                                    <td><?php put(shs,2017,Oct,BHMC); ?></td>
+                                                    <td><?php put(shs,2017,Nov,BHMC); ?></td>
+                                                    <td><?php put(shs,2017,Dec,BHMC); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </div><!-- table responsive -->
-
+                                    </div><!-- table responsive -->    
                                 <div id="combined-shs-201617" style="width:100%;"></div>
-
-                                </div><!-- panel body -->
                             </div>
+                        </div>
                     </div>
                 </div>
                 <!-- /.row -->
 
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Broken Hill GP Super Clinic</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <a href="new-pt-bhgpsc.html" class="list-group-item">New Patient Statistics</a>
+                                        <a href="ob-stats-bhgpsc.html" class="list-group-item">Online Booking Statistics</a>
+                                        <a href="shs-bhgpsc.html" class="list-group-item">Shared Health Summary Statistics</a>
+                                        <a href="tap-bhgpsc.html" class="list-group-item">Total Active Patients</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">South Medical Centre</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <a href="new-pt-smc.html" class="list-group-item">New Patient Statistics</a>
+                                        <a href="ob-stats-smc.html" class="list-group-item">Online Booking Statistics</a>
+                                        <a href="shs-smc.html" class="list-group-item">Shared Health Summary Statistics</a>
+                                        <a href="tap-smc.html" class="list-group-item">Total Active Patients</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Broken Hill Medical Centre</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <a href="new-pt-bhmc.html" class="list-group-item">New Patient Statistics</a>
+                                        <a href="ob-stats-bhmc.html" class="list-group-item">Online Booking Statistics</a>
+                                        <a href="shs-bhmc.html" class="list-group-item">Shared Health Summary Statistics</a>
+                                        <a href="tap-bhmc.html" class="list-group-item">Total Active Patients</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-yellow">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Combined</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <a href="new-pt-comb.html" class="list-group-item">New Patient Statistics</a>
+                                        <a href="ob-stats-comb.html" class="list-group-item">Online Booking Statistics</a>
+                                        <a href="shs-comb.html" class="list-group-item">Shared Health Summary Statistics</a>
+                                        <a href="tap-comb.html" class="list-group-item">Total Active Patients</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <!-- /.row -->
 
             </div>
             <!-- /.container-fluid -->
@@ -254,7 +306,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
+    
     <!-- Morris Charts JavaScript -->
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>
@@ -268,67 +320,12 @@
         element: 'combined-shs-201617',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2016-07',
-            BHGPSC: 42,
-            SMC: 48,
-            BHMC: 11
-        }, {
-            month: '2016-08',
-            BHGPSC: 40,
-            SMC: 66,
-            BHMC: 2
-        }, {
-            month: '2016-09',
-            BHGPSC: 0,
-            SMC: 0,
-            BHMC: null
-        }, {
-            month: '2016-10',
-            BHGPSC: 0,
-            SMC: 0,
-            BHMC: null
-        }, {
-            month: '2016-11',
-            BHGPSC: 0,
-            SMC: 0,
-            BHMC: null
-        }, {
-            month: '2016-12',
-            BHGPSC: 1,
-            SMC: 0,
-            BHMC: null
-        }, {
-            month: '2017-01',
-            BHGPSC: null,
-            SMC: null,
-            BHMC: null
-        }, {
-            month: '2017-02',
-            BHGPSC: null,
-            SMC: null,
-            BHMC: null
-        }, {
-            month: '2017-03',
-            BHGPSC: null,
-            SMC: null,
-            BHMC: null
-        }, {
-            month: '2017-04',
-            BHGPSC: null,
-            SMC: null,
-            BHMC: null
-        }, {
-            month: '2017-05',
-            BHGPSC: null,
-            SMC: null,
-            BHMC: null
-        }, {
-            month: '2017-06',
-            BHGPSC: null,
-            SMC: null,
-            BHMC: null
-        }, ],
+        // 
+        
+        // Manu:4 The below function will auto generate plot data so there's no need to
+        // do it again. Note we are calling the "shs" plot points. Give each graph a unique code like
+        // "shs".
+        data: [<?php plotDataArray('shs',2017); ?>],
         xkey: 'month',
         ykeys: ['BHGPSC', 'SMC', 'BHMC'],
         labels: ['BHGPSC', 'SMC', 'BHMC'],
@@ -346,6 +343,10 @@
     <script src="js/plugins/flot/jquery.flot.pie.js"></script>
     <script src="js/plugins/flot/flot-data.js"></script>
 
+    <!-- Manu:5 This input is hidden. Please add this to the bottom of the form. This is what makes the
+    form submit when you hit enter. -->
+    <input type="submit" name="loading" value="submit" hidden>
+    </form>
 </body>
 
 </html>

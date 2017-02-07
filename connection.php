@@ -55,11 +55,15 @@ try {
  * @param  string $Type   Type of Stat
  * @param  int $Year    Year
  * @param  string $Month   Month code
- * @param  string $Clinic  Clinic code
+ * @param  enum $Clinic  GPSC,SMC,BHMC
  * @param  int $ptCount Patient count
  * @return none          none
  */
 	function putCount($Type,$Year,$Month,$Clinic,$ptCount){
+		$clinics = array('GPSC','SMC','BHMC');
+		if (!in_array($Clinic,$clinics)) {
+			echo $Clinic." is not a valid Clinic code, try GPSC,SMC,BHMC";
+		}
 		$check = getCount($Type,$Year,$Month,$Clinic); // Returns null if not found.
 		if ($check!==$ptCount){
 			$id = getID($Type,$Year,$Month,$Clinic); // Returns null if not found.
@@ -89,21 +93,28 @@ function htmlNameFilter($Tag){
 }
 try {
 	/**
-	 * Manu: Function that is used in HTML (only) to output Patient Count.
- 	 * @param  string $Type   Type of Stat
+	 * Manu: Outputs Patient Count.
+ 	 * @param  string $Type   shs,ob,tap,...
 	 * @param  string $y Year as string
-	 * @param  string $m Month
-	 * @param  string $c Clinic Code
+	 * @param  enum $m Jan,Feb,...
+	 * @param  enum $c GPSC,SMC,BHMC
 	 * @return int    Patient Count
 	 */
 	function put($t,$y,$m,$c){
-		echo getCount($t,intval($y),$m,$c);
+		echo number_format(getCount($t,intval($y),$m,$c));
 	}
 } catch (Exception $e) {
 	echo $e;
 }
 
 //plotData(ob,2017,Jan);
+/**
+ * Manu: Function to generate a single plot data sample for all clinics.
+ * @param  string $t Any String
+ * @param  int $y Year
+ * @param  enum $m Jan,Feb,...
+ * @return string    Plot Data Sample
+ */
 function plotData($t,$y,$m){
 	echo "{";
 	$mInt = monthIntoInt($m);
@@ -126,6 +137,74 @@ function plotData($t,$y,$m){
 	echo "}";
 }
 
+/**
+ * Manu: Function only produces a single plot point for a single clinic.
+ * @param  string $t Type
+ * @param  int $y Year
+ * @param  enum $m Month
+ * @param  enum $c GPSC,SMC,BHMC
+ * @return string    Plot data for Morris chart.
+ */
+function plotDataSingle($t,$y,$m,$c){
+	echo "{";
+	$mInt = monthIntoInt($m);
+	echo "month: '".$y."-".$mInt."',";
+	$firgure = getCount($t,$y,$m,$c);
+	if ($firgure===0) {
+		$firgure = 'null';
+	}
+	echo $c.": ".$firgure;
+	echo "}";
+}
+
+//plotDataArray('shs',2017);
+/**
+ * Manu: Outputs Plot Data. All 3 clinics.
+ * It will print out the entire plot data set for the javascript plot used.
+ * @param  string $Type shs,ob,tap,...
+ * @param  int $Year Year
+ * @return string       Plot points string
+ */
+function plotDataArray($Type,$Year){
+	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 AND year=%i1 ORDER BY month", $Type, $Year);
+	//var_dump($plotPoints);
+	foreach ($plotPoints as $key => $value) {
+		# code...
+		$y = $value['year'];
+		$m = $value['month'];
+		$t = $value['type'];
+		plotData($t,$y,$m);
+		echo ",";
+	}
+}
+//plotDataPerClinic('shs',2017,'BHMC');
+//plotDataPerClinic('shs',2017,'GPSC');
+/**
+ * Manu: Outputs Plot Data for a single clinic. Remember ykeys: GPSC,SMC,BHMC
+ * @param  string $Type   shs,ob,tap...
+ * @param  int $Year   Year
+ * @param  enum $Clinic GPSC,SMC,BHMC
+ * @return string         Plot Data
+ */
+function plotDataPerClinic($Type,$Year,$Clinic){
+	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 AND year=%i1 AND clinic=%s2 ORDER BY month", $Type, $Year, $Clinic);
+	//var_dump($plotPoints);
+	foreach ($plotPoints as $key => $value) {
+		# code...
+		$y = $value['year'];
+		$m = $value['month'];
+		$t = $value['type'];
+		plotDataSingle($t,$y,$m,$Clinic);
+		echo ",";
+	}
+}
+
+/**
+ * Manu: Function to convert Month strings into int values.
+ * Int values were required by the plot.
+ * @param  enum $Month Jan,Feb,Mar,...
+ * @return int    Month as Int
+ */
 function monthIntoInt($Month){
 	switch ($Month) {
     case "Jan":
@@ -167,35 +246,31 @@ function monthIntoInt($Month){
 	}
 }
 
-//plotDataArray();
-function plotDataArray(){
-	$plotPoints = DB::query("SELECT * FROM OnlineBookings ORDER BY year DESC, month DESC");
-	//var_dump($plotPoints);
-	foreach ($plotPoints as $key => $value) {
-		# code...
-		$y = $value['year'];
-		$m = $value['month'];
-		$t = $value['type'];
-		plotData($t,$y,$m);
-		echo ",";
+
+
+
+try {
+	/**
+	 * Manu: This is the loop that updates/inserts the database records.
+	 * @var POST
+	 */
+	//var_dump($_POST);
+	foreach ($_POST as $name => $value) {
+		$T = htmlNameFilter($name)[0];
+	    $Y = intval(htmlNameFilter($name)[1]);
+	    $M = htmlNameFilter($name)[2];
+	    $C = htmlNameFilter($name)[3];
+	    $V = intval($value);
+	    if ($Y!==0 && is_numeric($value)){ // Manu: Checking to see if Year value is a string to make sure we have the correct inputs.
+	    	putCount($T,$Y,$M,$C,$V);
+	    } else {
+	    	if ($Y!==0 && $value==='') { // Manu: Mofified to enter '0' for Patient Count when field is left blank.
+	    		putCount($T,$Y,$M,$C,0);
+	    	}
 	}
 }
-
-
-/**
- * Manu: This is the loop that updates/inserts the database records.
- * @var POST
- */
-//var_dump($_POST);
-foreach ($_POST as $name => $value) {
-	$T = htmlNameFilter($name)[0];
-    $Y = intval(htmlNameFilter($name)[1]);
-    $M = htmlNameFilter($name)[2];
-    $C = htmlNameFilter($name)[3];
-    $V = intval($value);
-    if ($Y!==0){
-    	putCount($T,$Y,$M,$C,$V);
-    }
+} catch (Exception $e) {
+	echo "Error submitting values :".$e;
 }
 
 

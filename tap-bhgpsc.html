@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+    <!-- Manu:1 Add this PhP to your page. This needs to be in every page you use SQL data. -->
+    <?php require_once('connection.php'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -184,18 +185,18 @@
                                             <tbody>
                                                 <tr>
                                                     <td><b>Broken Hill GP Super Clinic</b></td>
-                                                    <td>9,668</td>
-                                                    <td>9,703</td>
-                                                    <td>9,874</td>
-                                                    <td>9,901</td>
-                                                    <td>9,967</td>
-                                                    <td>10,176</td>
-                                                    <td>10,109</td>
-                                                    <td>10,402</td>
-                                                    <td>11,585</td>
-                                                    <td>11,440</td>
-                                                    <td>11,633</td>
-                                                    <td>11,794</td>
+                                                    <td><?php put(tap,2017,Jan,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Feb,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Mar,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Apr,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,May,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Jun,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Jul,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Aug,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Sep,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Oct,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Nov,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Dec,GPSC); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -237,45 +238,9 @@
         element: 'bhgpsc-tap-2016',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2016-01',
-            patients: 9668
-        }, {
-            month: '2016-02',
-            patients: 9703
-        }, {
-            month: '2016-03',
-            patients: 9874
-        }, {
-            month: '2016-04',
-            patients: 9901
-        }, {
-            month: '2016-05',
-            patients: 9967
-        }, {
-            month: '2016-06',
-            patients: 10176
-        }, {
-            month: '2016-07',
-            patients: 10109
-        }, {
-            month: '2016-08',
-            patients: 10402
-        }, {
-            month: '2016-09',
-            patients: 11585
-        }, {
-            month: '2016-10',
-            patients: 11440
-        }, {
-            month: '2016-11',
-            patients: 11633
-        }, {
-            month: '2016-12',
-            patients: 11794
-        }, ],
+        data: [<?php plotDataPerClinic('tap',2017,'GPSC'); ?>],
         xkey: 'month',
-        ykeys: ['patients'],
+        ykeys: ['GPSC'],
         labels: ['Total Active Patients'],
         lineColors: ['#e64a19'],
         smooth: false,

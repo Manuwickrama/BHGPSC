@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+    <!-- Manu:1 Add this PhP to your page. -->
+    <?php require_once('connection.php'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -184,48 +185,48 @@
                                             <tbody>
                                                 <tr>
                                                     <td><b>Broken Hill GP Super Clinic</b></td>
-                                                    <td>9,668</td>
-                                                    <td>9,703</td>
-                                                    <td>9,874</td>
-                                                    <td>9,901</td>
-                                                    <td>9,967</td>
-                                                    <td>10,176</td>
-                                                    <td>10,109</td>
-                                                    <td>10,402</td>
-                                                    <td>11,585</td>
-                                                    <td>11,440</td>
-                                                    <td>11,633</td>
-                                                    <td>11.794</td>
+                                                    <td><?php put(tap,2017,Jan,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Feb,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Mar,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Apr,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,May,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Jun,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Jul,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Aug,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Sep,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Oct,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Nov,GPSC); ?></td>
+                                                    <td><?php put(tap,2017,Dec,GPSC); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>South Medical Centre</b></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td>2,522</td>
-                                                    <td>2,585</td>
-                                                    <td>2,641</td>
-                                                    <td>2,732</td>
-                                                    <td>2,824</td>
-                                                    <td>2,864</td>
-                                                    <td>2,928</td>
-                                                    <td>2,988</td>
-                                                    <td>3,073</td>
-                                                    <td>3,110</td>
-                                                    <td>3,157</td>
+                                                    <td><?php put(tap,2017,Jan,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Feb,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Mar,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Apr,SMC); ?></td>
+                                                    <td><?php put(tap,2017,May,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Jun,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Jul,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Aug,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Sep,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Oct,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Nov,SMC); ?></td>
+                                                    <td><?php put(tap,2017,Dec,SMC); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Broken Hill Medical Centre</b></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td>1,682</td>
-                                                    <td>1,592</td>
-                                                    <td>1,712</td>
-                                                    <td>1,604</td>
-                                                    <td>1,564</td>
-                                                    <td>1,600</td>
-                                                    <td>1,541</td>
-                                                    <td>1,422</td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
+                                                    <td><?php put(tap,2017,Jan,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Feb,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Mar,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Apr,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,May,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Jun,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Jul,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Aug,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Sep,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Oct,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Nov,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Dec,BHMC); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -267,67 +268,7 @@
         element: 'combined-tap-2016',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2016-01',
-            BHGPSC: 9668,
-            SMC: null,
-            BHMC: null
-        }, {
-            month: '2016-02',
-            BHGPSC: 9703,
-            SMC: 2522,
-            BHMC: 1682 
-        }, {
-            month: '2016-03',
-            BHGPSC: 9874,
-            SMC: 2585,
-            BHMC: 1592 
-        }, {
-            month: '2016-04',
-            BHGPSC: 9901,
-            SMC: 2641,
-            BHMC: 1712
-        }, {
-            month: '2016-05',
-            BHGPSC: 9967,
-            SMC: 2732,
-            BHMC: 1604
-        }, {
-            month: '2016-06',
-            BHGPSC: 10176,
-            SMC: 2824,
-            BHMC: 1564
-        }, {
-            month: '2016-07',
-            BHGPSC: 10109,
-            SMC: 2864,
-            BHMC: 1600
-        }, {
-            month: '2016-08',
-            BHGPSC: 10402,
-            SMC: 2928,
-            BHMC: 1541
-        }, {
-            month: '2016-09',
-            BHGPSC: 11585,
-            SMC: 2988,
-            BHMC: 1422
-        }, {
-            month: '2016-10',
-            BHGPSC: 11440,
-            SMC: 3073,
-            BHMC: null
-        }, {
-            month: '2016-11',
-            BHGPSC: 11633,
-            SMC: 3110,
-            BHMC: null  
-        }, {
-            month: '2016-12',
-            BHGPSC: 11794,
-            SMC: 3157,
-            BHMC: null
-        }, ],
+        data: [<?php plotDataArray('tap',2017); ?>],
         xkey: 'month',
         ykeys: ['BHGPSC', 'SMC', 'BHMC'],
         labels: ['BHGPSC', 'SMC', 'BHMC'],
