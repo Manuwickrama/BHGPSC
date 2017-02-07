@@ -132,6 +132,27 @@ function plotData($t,$y,$m){
 	echo "BHMC: ".$bhmcfigure;
 	echo "}";
 }
+
+//plotDataArray();
+/**
+ * Manu: Function to Query the entire data for a particular "Type".
+ * It will print out the entire plot data set for the javascript plot used.
+ * @param  string $Type Name for the table
+ * @return string       Plot points string
+ */
+function plotDataArray($Type){
+	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 ORDER BY year DESC, month DESC", $Type);
+	//var_dump($plotPoints);
+	foreach ($plotPoints as $key => $value) {
+		# code...
+		$y = $value['year'];
+		$m = $value['month'];
+		$t = $value['type'];
+		plotData($t,$y,$m);
+		echo ",";
+	}
+}
+
 /**
  * Manu: Function to convert Month strings into int values.
  * Int values were required by the plot.
@@ -179,25 +200,7 @@ function monthIntoInt($Month){
 	}
 }
 
-//plotDataArray();
-/**
- * Manu: Function to Query the entire data for a particular "Type".
- * It will print out the entire plot data set for the javascript plot used.
- * @param  string $Type Name for the table
- * @return string       Plot points string
- */
-function plotDataArray($Type){
-	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 ORDER BY year DESC, month DESC", $Type);
-	//var_dump($plotPoints);
-	foreach ($plotPoints as $key => $value) {
-		# code...
-		$y = $value['year'];
-		$m = $value['month'];
-		$t = $value['type'];
-		plotData($t,$y,$m);
-		echo ",";
-	}
-}
+
 
 
 /**
