@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+    <!-- Manu:1 Add this PhP to your page. This needs to be in every page you use SQL data. -->
+    <?php require_once('connection.php'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -184,18 +185,18 @@
                                             <tbody>
                                                 <tr>
                                                     <td><b>South Medical Centre</b></td>
-                                                    <td>28</td>
-                                                    <td>28</td>
-                                                    <td>47</td>
-                                                    <td>35</td>
-                                                    <td>30</td>
-                                                    <td>42</td>
-                                                    <td>65</td>
-                                                    <td>72</td>
-                                                    <td>55</td>
-                                                    <td>48</td>
-                                                    <td>34</td>
-                                                    <td>16</td>
+                                                    <td><?php put(np,2017,Jan,SMC); ?></td>
+                                                    <td><?php put(np,2017,Feb,SMC); ?></td>
+                                                    <td><?php put(np,2017,Mar,SMC); ?></td>
+                                                    <td><?php put(np,2017,Apr,SMC); ?></td>
+                                                    <td><?php put(np,2017,May,SMC); ?></td>
+                                                    <td><?php put(np,2017,Jun,SMC); ?></td>
+                                                    <td><?php put(np,2017,Jul,SMC); ?></td>
+                                                    <td><?php put(np,2017,Aug,SMC); ?></td>
+                                                    <td><?php put(np,2017,Sep,SMC); ?></td>
+                                                    <td><?php put(np,2017,Oct,SMC); ?></td>
+                                                    <td><?php put(np,2017,Nov,SMC); ?></td>
+                                                    <td><?php put(np,2017,Dec,SMC); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -238,18 +239,18 @@
                                             <tbody>
                                                 <tr>
                                                     <td><b>South Medical Centre</b></td>
-                                                    <td>44</td>
-                                                    <td>94</td>
-                                                    <td>75</td>
-                                                    <td>50</td>
-                                                    <td>94</td>
-                                                    <td>92</td>
-                                                    <td>45</td>
-                                                    <td>60</td>
-                                                    <td>59</td>
-                                                    <td>73</td>
-                                                    <td>51</td>
-                                                    <td>48</td>
+                                                    <td><?php put(np,2016,Jan,SMC); ?></td>
+                                                    <td><?php put(np,2016,Feb,SMC); ?></td>
+                                                    <td><?php put(np,2016,Mar,SMC); ?></td>
+                                                    <td><?php put(np,2016,Apr,SMC); ?></td>
+                                                    <td><?php put(np,2016,May,SMC); ?></td>
+                                                    <td><?php put(np,2016,Jun,SMC); ?></td>
+                                                    <td><?php put(np,2016,Jul,SMC); ?></td>
+                                                    <td><?php put(np,2016,Aug,SMC); ?></td>
+                                                    <td><?php put(np,2016,Sep,SMC); ?></td>
+                                                    <td><?php put(np,2016,Oct,SMC); ?></td>
+                                                    <td><?php put(np,2016,Nov,SMC); ?></td>
+                                                    <td><?php put(np,2016,Dec,SMC); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -291,45 +292,9 @@
         element: 'smc-new-pt-2015',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2015-01',
-            patients: 28
-        }, {
-            month: '2015-02',
-            patients: 28
-        }, {
-            month: '2015-03',
-            patients: 47
-        }, {
-            month: '2015-04',
-            patients: 35
-        }, {
-            month: '2015-05',
-            patients: 30
-        }, {
-            month: '2015-06',
-            patients: 42
-        }, {
-            month: '2015-07',
-            patients: 65
-        }, {
-            month: '2015-08',
-            patients: 72
-        }, {
-            month: '2015-09',
-            patients: 55
-        }, {
-            month: '2015-10',
-            patients: 48
-        }, {
-            month: '2015-11',
-            patients: 34
-        }, {
-            month: '2015-12',
-            patients: 16
-        }, ],
+        data: [<?php plotDataPerClinic('np',2017,'SMC'); ?>],
         xkey: 'month',
-        ykeys: ['patients'],
+        ykeys: ['SMC'],
         labels: ['New Patients'],
         lineColors: ['#4caf50'],
         smooth: false,
@@ -346,45 +311,9 @@
         element: 'smc-new-pt-2016',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2016-01',
-            patients: 44
-        }, {
-            month: '2016-02',
-            patients: 94
-        }, {
-            month: '2016-03',
-            patients: 75
-        }, {
-            month: '2016-04',
-            patients: 50
-        }, {
-            month: '2016-05',
-            patients: 94
-        }, {
-            month: '2016-06',
-            patients: 92
-        }, {
-            month: '2016-07',
-            patients: 45
-        }, {
-            month: '2016-08',
-            patients: 60
-        }, {
-            month: '2016-09',
-            patients: 59
-        }, {
-            month: '2016-10',
-            patients: 73
-        }, {
-            month: '2016-11',
-            patients: 51
-        }, {
-            month: '2016-12',
-            patients: 48
-        }, ],
+        data: [<?php plotDataPerClinic('np',2016,'SMC'); ?>],
         xkey: 'month',
-        ykeys: ['patients'],
+        ykeys: ['SMC'],
         labels: ['New Patients'],
         lineColors: ['#4caf50'],
         smooth: false,

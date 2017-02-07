@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+    <!-- Manu:1 Add this PhP to your page. This needs to be in every page you use SQL data. -->
+    <?php require_once('connection.php'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -159,7 +160,7 @@
                     <div class="col-lg-12">
                         <div class="panel panel-yellow">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Combined New Patients - 2015 (Active patients)</h3>
+                                    <h3 class="panel-title">Combined New Patients - 2017 (Active patients)</h3>
                                 </div>
                                 <div class="panel-body">
                                     <div class="table-responsive">
@@ -167,65 +168,67 @@
                                             <thead>
                                                 <tr>
                                                     <th>Site</th>
-                                                    <th>Jan</th>
-                                                    <th>Feb</th>
-                                                    <th>Mar</th>
-                                                    <th>Apr</th>
-                                                    <th>May</th>
-                                                    <th>Jun</th>
-                                                    <th>Jul</th>
-                                                    <th>Aug</th>
-                                                    <th>Sep</th>
-                                                    <th>Oct</th>
-                                                    <th>Nov</th>
-                                                    <th>Dec</th>
+                                                    <th>Jan-17</th>
+                                                    <th>Feb-17</th>
+                                                    <th>Mar-17</th>
+                                                    <th>Apr-17</th>
+                                                    <th>May-17</th>
+                                                    <th>Jun-17</th>
+                                                    <th>Jul-17</th>
+                                                    <th>Aug-17</th>
+                                                    <th>Sep-17</th>
+                                                    <th>Oct-17</th>
+                                                    <th>Nov-17</th>
+                                                    <th>Dec-17</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td><b>Broken Hill GP Super Clinic</b></td>
-                                                    <td>174</td>
-                                                    <td>260</td>
-                                                    <td>249</td>
-                                                    <td>232</td>
-                                                    <td>292</td>
-                                                    <td>218</td>
-                                                    <td>216</td>
-                                                    <td>282</td>
-                                                    <td>287</td>
-                                                    <td>214</td>
-                                                    <td>213</td>
-                                                    <td>113</td>
+                                                    <!-- Manu:3 These PhP codes only read data from that database, so they will only output the value.
+                                                    The PHP component outputs the Patient Count for the requested stat.-->
+                                                    <td><?php put(np,2017,Jan,GPSC); ?></td>
+                                                    <td><?php put(np,2017,Feb,GPSC); ?></td>
+                                                    <td><?php put(np,2017,Mar,GPSC); ?></td>
+                                                    <td><?php put(np,2017,Apr,GPSC); ?></td>
+                                                    <td><?php put(np,2017,May,GPSC); ?></td>
+                                                    <td><?php put(np,2017,Jun,GPSC); ?></td>
+                                                    <td><?php put(np,2017,Jul,GPSC); ?></td>
+                                                    <td><?php put(np,2017,Aug,GPSC); ?></td>
+                                                    <td><?php put(np,2017,Sep,GPSC); ?></td>
+                                                    <td><?php put(np,2017,Oct,GPSC); ?></td>
+                                                    <td><?php put(np,2017,Nov,GPSC); ?></td>
+                                                    <td><?php put(np,2017,Dec,GPSC); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>South Medical Centre</b></td>
-                                                    <td>28</td>
-                                                    <td>28</td>
-                                                    <td>47</td>
-                                                    <td>35</td>
-                                                    <td>30</td>
-                                                    <td>42</td>
-                                                    <td>65</td>
-                                                    <td>72</td>
-                                                    <td>55</td>
-                                                    <td>48</td>
-                                                    <td>34</td>
-                                                    <td>16</td>
+                                                    <td><?php put(np,2017,Jan,SMC); ?></td>
+                                                    <td><?php put(np,2017,Feb,SMC); ?></td>
+                                                    <td><?php put(np,2017,Mar,SMC); ?></td>
+                                                    <td><?php put(np,2017,Apr,SMC); ?></td>
+                                                    <td><?php put(np,2017,May,SMC); ?></td>
+                                                    <td><?php put(np,2017,Jun,SMC); ?></td>
+                                                    <td><?php put(np,2017,Jul,SMC); ?></td>
+                                                    <td><?php put(np,2017,Aug,SMC); ?></td>
+                                                    <td><?php put(np,2017,Sep,SMC); ?></td>
+                                                    <td><?php put(np,2017,Oct,SMC); ?></td>
+                                                    <td><?php put(np,2017,Nov,SMC); ?></td>
+                                                    <td><?php put(np,2017,Dec,SMC); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Broken Hill Medical Centre</b></td>
-                                                    <td>5</td>
-                                                    <td>8</td>
-                                                    <td>12</td>
-                                                    <td>13</td>
-                                                    <td>15</td>
-                                                    <td>28</td>
-                                                    <td>14</td>
-                                                    <td>25</td>
-                                                    <td>16</td>
-                                                    <td>10</td>
-                                                    <td>15</td>
-                                                    <td>10</td>
+                                                    <td><?php put(np,2017,Jan,BHMC); ?></td>
+                                                    <td><?php put(np,2017,Feb,BHMC); ?></td>
+                                                    <td><?php put(np,2017,Mar,BHMC); ?></td>
+                                                    <td><?php put(np,2017,Apr,BHMC); ?></td>
+                                                    <td><?php put(np,2017,May,BHMC); ?></td>
+                                                    <td><?php put(np,2017,Jun,BHMC); ?></td>
+                                                    <td><?php put(np,2017,Jul,BHMC); ?></td>
+                                                    <td><?php put(np,2017,Aug,BHMC); ?></td>
+                                                    <td><?php put(np,2017,Sep,BHMC); ?></td>
+                                                    <td><?php put(np,2017,Oct,BHMC); ?></td>
+                                                    <td><?php put(np,2017,Nov,BHMC); ?></td>
+                                                    <td><?php put(np,2017,Dec,BHMC); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -251,65 +254,67 @@
                                             <thead>
                                                 <tr>
                                                     <th>Site</th>
-                                                    <th>Jan</th>
-                                                    <th>Feb</th>
-                                                    <th>Mar</th>
-                                                    <th>Apr</th>
-                                                    <th>May</th>
-                                                    <th>Jun</th>
-                                                    <th>Jul</th>
-                                                    <th>Aug</th>
-                                                    <th>Sep</th>
-                                                    <th>Oct</th>
-                                                    <th>Nov</th>
-                                                    <th>Dec</th>
+                                                    <th>Jan-17</th>
+                                                    <th>Feb-17</th>
+                                                    <th>Mar-17</th>
+                                                    <th>Apr-17</th>
+                                                    <th>May-17</th>
+                                                    <th>Jun-17</th>
+                                                    <th>Jul-17</th>
+                                                    <th>Aug-17</th>
+                                                    <th>Sep-17</th>
+                                                    <th>Oct-17</th>
+                                                    <th>Nov-17</th>
+                                                    <th>Dec-17</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td><b>Broken Hill GP Super Clinic</b></td>
-                                                    <td>128</td>
-                                                    <td>110</td>
-                                                    <td>138</td>
-                                                    <td>101</td>
-                                                    <td>189</td>
-                                                    <td>128</td>
-                                                    <td>193</td>
-                                                    <td>241</td>
-                                                    <td>189</td>
-                                                    <td>181</td>
-                                                    <td>168</td>
-                                                    <td>138</td>
+                                                    <!-- Manu:3 These PhP codes only read data from that database, so they will only output the value.
+                                                    The PHP component outputs the Patient Count for the requested stat.-->
+                                                    <td><?php put(np,2016,Jan,GPSC); ?></td>
+                                                    <td><?php put(np,2016,Feb,GPSC); ?></td>
+                                                    <td><?php put(np,2016,Mar,GPSC); ?></td>
+                                                    <td><?php put(np,2016,Apr,GPSC); ?></td>
+                                                    <td><?php put(np,2016,May,GPSC); ?></td>
+                                                    <td><?php put(np,2016,Jun,GPSC); ?></td>
+                                                    <td><?php put(np,2016,Jul,GPSC); ?></td>
+                                                    <td><?php put(np,2016,Aug,GPSC); ?></td>
+                                                    <td><?php put(np,2016,Sep,GPSC); ?></td>
+                                                    <td><?php put(np,2016,Oct,GPSC); ?></td>
+                                                    <td><?php put(np,2016,Nov,GPSC); ?></td>
+                                                    <td><?php put(np,2016,Dec,GPSC); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>South Medical Centre</b></td>
-                                                    <td>44</td>
-                                                    <td>94</td>
-                                                    <td>75</td>
-                                                    <td>50</td>
-                                                    <td>94</td>
-                                                    <td>92</td>
-                                                    <td>45</td>
-                                                    <td>60</td>
-                                                    <td>59</td>
-                                                    <td>73</td>
-                                                    <td>51</td>
-                                                    <td>48</td>
+                                                    <td><?php put(np,2016,Jan,SMC); ?></td>
+                                                    <td><?php put(np,2016,Feb,SMC); ?></td>
+                                                    <td><?php put(np,2016,Mar,SMC); ?></td>
+                                                    <td><?php put(np,2016,Apr,SMC); ?></td>
+                                                    <td><?php put(np,2016,May,SMC); ?></td>
+                                                    <td><?php put(np,2016,Jun,SMC); ?></td>
+                                                    <td><?php put(np,2016,Jul,SMC); ?></td>
+                                                    <td><?php put(np,2016,Aug,SMC); ?></td>
+                                                    <td><?php put(np,2016,Sep,SMC); ?></td>
+                                                    <td><?php put(np,2016,Oct,SMC); ?></td>
+                                                    <td><?php put(np,2016,Nov,SMC); ?></td>
+                                                    <td><?php put(np,2016,Dec,SMC); ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Broken Hill Medical Centre</b></td>
-                                                    <td>16</td>
-                                                    <td>30</td>
-                                                    <td>10</td>
-                                                    <td>15</td>
-                                                    <td>26</td>
-                                                    <td>13</td>
-                                                    <td>17</td>
-                                                    <td>7</td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
+                                                    <td><?php put(np,2016,Jan,BHMC); ?></td>
+                                                    <td><?php put(np,2016,Feb,BHMC); ?></td>
+                                                    <td><?php put(np,2016,Mar,BHMC); ?></td>
+                                                    <td><?php put(np,2016,Apr,BHMC); ?></td>
+                                                    <td><?php put(np,2016,May,BHMC); ?></td>
+                                                    <td><?php put(np,2016,Jun,BHMC); ?></td>
+                                                    <td><?php put(np,2016,Jul,BHMC); ?></td>
+                                                    <td><?php put(np,2016,Aug,BHMC); ?></td>
+                                                    <td><?php put(np,2016,Sep,BHMC); ?></td>
+                                                    <td><?php put(np,2016,Oct,BHMC); ?></td>
+                                                    <td><?php put(np,2016,Nov,BHMC); ?></td>
+                                                    <td><?php put(np,2016,Dec,BHMC); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -351,67 +356,7 @@
         element: 'combined-new-pt-2015',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2015-01',
-            BHGPSC: 174,
-            SMC: 28,
-            BHMC: 5
-        }, {
-            month: '2015-02',
-            BHGPSC: 260,
-            SMC: 28,
-            BHMC: 8
-        }, {
-            month: '2015-03',
-            BHGPSC: 249,
-            SMC: 47,
-            BHMC: 12
-        }, {
-            month: '2015-04',
-            BHGPSC: 232,
-            SMC: 35,
-            BHMC: 13
-        }, {
-            month: '2015-05',
-            BHGPSC: 292,
-            SMC: 30,
-            BHMC: 15
-        }, {
-            month: '2015-06',
-            BHGPSC: 218,
-            SMC: 42,
-            BHMC: 28
-        }, {
-            month: '2015-07',
-            BHGPSC: 216,
-            SMC: 65,
-            BHMC: 14
-        }, {
-            month: '2015-08',
-            BHGPSC: 282,
-            SMC: 72,
-            BHMC: 25
-        }, {
-            month: '2015-09',
-            BHGPSC: 287,
-            SMC: 55,
-            BHMC: 16
-        }, {
-            month: '2015-10',
-            BHGPSC: 214,
-            SMC: 48,
-            BHMC: 10
-        }, {
-            month: '2015-11',
-            BHGPSC: 213,
-            SMC: 34,
-            BHMC: 15
-        }, {
-            month: '2015-12',
-            BHGPSC: 113,
-            SMC: 16,
-            BHMC: 10
-        }, ],
+        data: [<?php plotDataArray('np',2017); ?>],
         xkey: 'month',
         ykeys: ['BHGPSC', 'SMC', 'BHMC'],
         labels: ['BHGPSC', 'SMC', 'BHMC'],
@@ -430,67 +375,7 @@
         element: 'combined-new-pt-2016',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2015-01',
-            BHGPSC: 128,
-            SMC: 44,
-            BHMC: 16
-        }, {
-            month: '2015-02',
-            BHGPSC: 110,
-            SMC: 94,
-            BHMC: 30
-        }, {
-            month: '2015-03',
-            BHGPSC: 138,
-            SMC: 75,
-            BHMC: 10
-        }, {
-            month: '2015-04',
-            BHGPSC: 101,
-            SMC: 50,
-            BHMC: 15
-        }, {
-            month: '2015-05',
-            BHGPSC: 189,
-            SMC: 94,
-            BHMC: 26
-        }, {
-            month: '2015-06',
-            BHGPSC: 128,
-            SMC: 92,
-            BHMC: 13
-        }, {
-            month: '2015-07',
-            BHGPSC: 193,
-            SMC: 45,
-            BHMC: 17
-        }, {
-            month: '2015-08',
-            BHGPSC: 241,
-            SMC: 60,
-            BHMC: 7
-        }, {
-            month: '2015-09',
-            BHGPSC: 189,
-            SMC: 59,
-            BHMC: null
-        }, {
-            month: '2015-10',
-            BHGPSC: 181,
-            SMC: 73,
-            BHMC: null
-        }, {
-            month: '2015-11',
-            BHGPSC: 168,
-            SMC: 51,
-            BHMC: null
-        }, {
-            month: '2015-12',
-            BHGPSC: 138,
-            SMC: 48,
-            BHMC: null
-        }, ],
+        data: [<?php plotDataArray('np',2016); ?> ],
         xkey: 'month',
         ykeys: ['BHGPSC', 'SMC', 'BHMC'],
         labels: ['BHGPSC', 'SMC', 'BHMC'],

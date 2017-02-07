@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- Manu:1 Add this PhP to your page. This needs to be in every page you use SQL data. -->
+    <!-- Manu:1 Add this PhP to your page. -->
     <?php require_once('connection.php'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Vapour Statistics - SMC Shared Health Summaries Uploaded</title>
+    <title>Vapour Statistics - Combined Total Active Patients</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +34,8 @@
 </head>
 
 <body>
-
+    <!-- Manu:2 Encapsulate everything in this form heading. -->
+    <form method="POST" enctype="multipart/form-data" action="">
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -50,8 +51,8 @@
                 <a class="navbar-brand" href="index.html">Vapour Statistics</a>
             </div>
             <div class="navbar-pagetitle">
-                <h3>SMC
-                <small>Shared Health Summaries Uploaded</small></h3>
+                <h3>COMBINED
+                <small>Total Active Patients</small></h3>
             </div>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -72,7 +73,7 @@
                                 <a href="shs-bhgpsc.html">Shared Health Summary Stats</a>
                             </li>
                             <li>
-                                <a href="tap-bhgpsc.html">Total Active Patients</a>
+                                <a href="tap-bhgpsc.html">Total Acive Patients</a>
                             </li>
                         </ul>
                     </li><!-- bhgpsc -->
@@ -85,7 +86,7 @@
                             <li>
                                 <a href="ob-stats-smc.html">Online Booking Statistics</a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="shs-smc.html">Shared Health Summary Stats</a>
                             </li>
                             <li>
@@ -122,7 +123,7 @@
                             <li>
                                 <a href="shs-comb.html">Shared Health Summary Stats</a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="tap-comb.html">Total Active Patients</a>
                             </li>
                         </ul>
@@ -138,7 +139,7 @@
 
                 <!-- Page Heading -->
                 <div class="row">
-                   
+                    
                 </div>
                 <!-- /.row -->
 
@@ -149,7 +150,7 @@
                                     <h3 class="panel-title">What is this?</h3>
                                 </div>
                                 <div class="panel-body">
-                                    This page will highlight patients who have had a Shared Health Summary uploaded at the South Medical Centre. The overall number will be the total number of Shared Health Summaries uploaded to date. 
+                                    This page will highlight all patients who are currently marked active in the Genie database. These numbers are gathered through the PEN Tool with the monthly extracted data.
                                 </div>
                             </div>
                     </div>
@@ -158,9 +159,9 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="panel panel-success">
+                        <div class="panel panel-yellow">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">SMC Shared Health Summary Uploads : 2017</h3>
+                                    <h3 class="panel-title">Total Active Patients - 2017</h3>
                                 </div>
                                 <div class="panel-body">
                                     <div class="table-responsive">
@@ -168,41 +169,75 @@
                                             <thead>
                                                 <tr>
                                                     <th>Site</th>
-                                                    <th>Jan-17</th>
-                                                    <th>Feb-17</th>
-                                                    <th>Mar-17</th>
-                                                    <th>Apr-17</th>
-                                                    <th>May-17</th>
-                                                    <th>Jun-17</th>
-                                                    <th>Jul-17</th>
-                                                    <th>Aug-17</th>
-                                                    <th>Sep-17</th>
-                                                    <th>Oct-17</th>
-                                                    <th>Nov-17</th>
-                                                    <th>Dec-17</th>
+                                                    <th>Jan</th>
+                                                    <th>Feb</th>
+                                                    <th>Mar</th>
+                                                    <th>Apr</th>
+                                                    <th>May</th>
+                                                    <th>Jun</th>
+                                                    <th>Jul</th>
+                                                    <th>Aug</th>
+                                                    <th>Sep</th>
+                                                    <th>Oct</th>
+                                                    <th>Nov</th>
+                                                    <th>Dec</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
+                                                    <td><b>Broken Hill GP Super Clinic</b></td>
+                                                    <!-- Manu:3 All Input tags need a name like below and respective php tags. This enitire block can be easily included in one function call if needed. "shs" is the data on this page.
+
+                                                    Any input fields with the following "name" attribute (tag) will be entred into DB.
+                                                    The PHP component outputs the Patient Count for the requested stat.-->
+                                                    <td><input type="text" name="tap.2017.Jan.GPSC" value="<?php put(tap,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Feb.GPSC" value="<?php put(tap,2017,Feb,GPSC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Mar.GPSC" value="<?php put(tap,2017,Mar,GPSC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Apr.GPSC" value="<?php put(tap,2017,Apr,GPSC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.May.GPSC" value="<?php put(tap,2017,May,GPSC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Jun.GPSC" value="<?php put(tap,2017,Jun,GPSC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Jul.GPSC" value="<?php put(tap,2017,Jul,GPSC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Aug.GPSC" value="<?php put(tap,2017,Aug,GPSC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Sep.GPSC" value="<?php put(tap,2017,Sep,GPSC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Oct.GPSC" value="<?php put(tap,2017,Oct,GPSC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Nov.GPSC" value="<?php put(tap,2017,Nov,GPSC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Dec.GPSC" value="<?php put(tap,2017,Dec,GPSC); ?>"></td>
+                                                </tr>
+                                                <tr>
                                                     <td><b>South Medical Centre</b></td>
-                                                    <td><?php put(shs,2017,Jan,SMC); ?></td>
-                                                    <td><?php put(shs,2017,Feb,SMC); ?></td>
-                                                    <td><?php put(shs,2017,Mar,SMC); ?></td>
-                                                    <td><?php put(shs,2017,Apr,SMC); ?></td>
-                                                    <td><?php put(shs,2017,May,SMC); ?></td>
-                                                    <td><?php put(shs,2017,Jun,SMC); ?></td>
-                                                    <td><?php put(shs,2017,Jul,SMC); ?></td>
-                                                    <td><?php put(shs,2017,Aug,SMC); ?></td>
-                                                    <td><?php put(shs,2017,Sep,SMC); ?></td>
-                                                    <td><?php put(shs,2017,Oct,SMC); ?></td>
-                                                    <td><?php put(shs,2017,Nov,SMC); ?></td>
-                                                    <td><?php put(shs,2017,Dec,SMC); ?></td>
+                                                    <td><input type="text" name="tap.2017.Jan.SMC" value="<?php put(tap,2017,Jan,SMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Feb.SMC" value="<?php put(tap,2017,Feb,SMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Mar.SMC" value="<?php put(tap,2017,Mar,SMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Apr.SMC" value="<?php put(tap,2017,Apr,SMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.May.SMC" value="<?php put(tap,2017,May,SMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Jun.SMC" value="<?php put(tap,2017,Jun,SMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Jul.SMC" value="<?php put(tap,2017,Jul,SMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Aug.SMC" value="<?php put(tap,2017,Aug,SMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Sep.SMC" value="<?php put(tap,2017,Sep,SMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Oct.SMC" value="<?php put(tap,2017,Oct,SMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Nov.SMC" value="<?php put(tap,2017,Nov,SMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Dec.SMC" value="<?php put(tap,2017,Dec,SMC); ?>"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Broken Hill Medical Centre</b></td>
+                                                    <td><input type="text" name="tap.2017.Jan.BHMC" value="<?php put(tap,2017,Jan,BHMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Feb.BHMC" value="<?php put(tap,2017,Feb,BHMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Mar.BHMC" value="<?php put(tap,2017,Mar,BHMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Apr.BHMC" value="<?php put(tap,2017,Apr,BHMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.May.BHMC" value="<?php put(tap,2017,May,BHMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Jun.BHMC" value="<?php put(tap,2017,Jun,BHMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Jul.BHMC" value="<?php put(tap,2017,Jul,BHMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Aug.BHMC" value="<?php put(tap,2017,Aug,BHMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Sep.BHMC" value="<?php put(tap,2017,Sep,BHMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Oct.BHMC" value="<?php put(tap,2017,Oct,BHMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Nov.BHMC" value="<?php put(tap,2017,Nov,BHMC); ?>"></td>
+                                                    <td><input type="text" name="tap.2017.Dec.BHMC" value="<?php put(tap,2017,Dec,BHMC); ?>"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div><!-- table responsive -->
 
-                                <div id="smc-shs-201617" style="width:100%;"></div>
+                                <div id="combined-tap-2016" style="width:100%;"></div>
 
                                 </div><!-- panel body -->
                             </div>
@@ -230,21 +265,19 @@
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
     <script type="text/javascript">
-        // BHGPSC Shared Health Summary Line Chart
-    var months = ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+        // Combiuned New Patient Line Chart 2015
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     Morris.Line({
         // ID of the element in which to draw the chart.
-        element: 'smc-shs-201617',
+        element: 'combined-tap-2016',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        // Manu: plotDataPerClinic() function only outputs a single column of plot data "{month: 2017-1, BHGPSC: 1},"
-        data: [<?php plotDataPerClinic('shs',2017,'SMC'); ?>],
+        data: [<?php plotDataArray('tap',2017); ?>],
         xkey: 'month',
-        // Manu: Changed 'uploads' from ykeys to 'GPSC'. Same convention, fewer errors.
-        ykeys: ['SMC'],
-        labels: ['Shared Health Summaries Uploaded'],
-        lineColors: ['#4caf50'],
+        ykeys: ['BHGPSC', 'SMC', 'BHMC'],
+        labels: ['BHGPSC', 'SMC', 'BHMC'],
+        lineColors: ['#e64a19', '#4caf50', '#38b4ee'],
         smooth: false,
         resize: true
     });
@@ -257,7 +290,10 @@
     <script src="js/plugins/flot/jquery.flot.resize.js"></script>
     <script src="js/plugins/flot/jquery.flot.pie.js"></script>
     <script src="js/plugins/flot/flot-data.js"></script>
-
+    <!-- Manu:5 This input is hidden. Please add this to the bottom of the form. This is what makes the
+    form submit when you hit enter. -->
+    <input type="submit" name="loading" value="submit" hidden>
+</form>
 </body>
 
 </html>

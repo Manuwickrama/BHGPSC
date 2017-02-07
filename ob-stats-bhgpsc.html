@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+    <!-- Manu:1 Add this PhP to your page. This needs to be in every page you use SQL data. -->
+    <?php require_once('connection.php'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -193,18 +194,18 @@
                                                     <tbody>
                                                         <tr>
                                                             <td><b>Broken Hill GP Super Clinic</b></td>
-                                                            <td>135</td>
-                                                            <td>167</td>
-                                                            <td>255</td>
-                                                            <td>234</td>
-                                                            <td>313</td>
-                                                            <td>329</td>
-                                                            <td>302</td>
-                                                            <td>389</td>
-                                                            <td>447</td>
-                                                            <td>443</td>
-                                                            <td>443</td>
-                                                            <td>387</td>
+                                                            <td><?php put(ob,2017,Jan,GPSC); ?></td>
+                                                            <td><?php put(ob,2017,Feb,GPSC); ?></td>
+                                                            <td><?php put(ob,2017,Mar,GPSC); ?></td>
+                                                            <td><?php put(ob,2017,Apr,GPSC); ?></td>
+                                                            <td><?php put(ob,2017,May,GPSC); ?></td>
+                                                            <td><?php put(ob,2017,Jun,GPSC); ?></td>
+                                                            <td><?php put(ob,2017,Jul,GPSC); ?></td>
+                                                            <td><?php put(ob,2017,Aug,GPSC); ?></td>
+                                                            <td><?php put(ob,2017,Sep,GPSC); ?></td>
+                                                            <td><?php put(ob,2017,Oct,GPSC); ?></td>
+                                                            <td><?php put(ob,2017,Nov,GPSC); ?></td>
+                                                            <td><?php put(ob,2017,Dec,GPSC); ?></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -235,18 +236,18 @@
                                                     <tbody>
                                                         <tr>
                                                             <td><b>Broken Hill GP Super Clinic</b></td>
-                                                            <td>398</td>
-                                                            <td>321</td>
-                                                            <td>384</td>
-                                                            <td>443</td>
-                                                            <td>365</td>
-                                                            <td>421</td>
-                                                            <td>463</td>
-                                                            <td>594</td>
-                                                            <td>442</td>
-                                                            <td>456</td>
-                                                            <td>473</td>
-                                                            <td>341</td>
+                                                            <td><?php put(ob,2016,Jan,GPSC); ?></td>
+                                                            <td><?php put(ob,2016,Feb,GPSC); ?></td>
+                                                            <td><?php put(ob,2016,Mar,GPSC); ?></td>
+                                                            <td><?php put(ob,2016,Apr,GPSC); ?></td>
+                                                            <td><?php put(ob,2016,May,GPSC); ?></td>
+                                                            <td><?php put(ob,2016,Jun,GPSC); ?></td>
+                                                            <td><?php put(ob,2016,Jul,GPSC); ?></td>
+                                                            <td><?php put(ob,2016,Aug,GPSC); ?></td>
+                                                            <td><?php put(ob,2016,Sep,GPSC); ?></td>
+                                                            <td><?php put(ob,2016,Oct,GPSC); ?></td>
+                                                            <td><?php put(ob,2016,Nov,GPSC); ?></td>
+                                                            <td><?php put(ob,2016,Dec,GPSC); ?></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -287,45 +288,9 @@
         element: 'bhgpsc-ob-2015',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2015-01',
-            patients: 135
-        }, {
-            month: '2015-02',
-            patients: 167
-        }, {
-            month: '2015-03',
-            patients: 255
-        }, {
-            month: '2015-04',
-            patients: 234
-        }, {
-            month: '2015-05',
-            patients: 313
-        }, {
-            month: '2015-06',
-            patients: 329
-        }, {
-            month: '2015-07',
-            patients: 302
-        }, {
-            month: '2015-08',
-            patients: 389
-        }, {
-            month: '2015-09',
-            patients: 447
-        }, {
-            month: '2015-10',
-            patients: 443
-        }, {
-            month: '2015-11',
-            patients: 443
-        }, {
-            month: '2015-12',
-            patients: 387
-        }, ],
+        data: [<?php plotDataPerClinic('ob',2017,'GPSC'); ?>],
         xkey: 'month',
-        ykeys: ['patients'],
+        ykeys: ['GPSC'],
         labels: ['Booked Online'],
         lineColors: ['#e64a19'],
         smooth: false,
@@ -339,45 +304,9 @@
         element: 'bhgpsc-ob-2016',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2016-01',
-            patients: 398
-        }, {
-            month: '2016-02',
-            patients: 321
-        }, {
-            month: '2016-03',
-            patients: 384
-        }, {
-            month: '2016-04',
-            patients: 443
-        }, {
-            month: '2016-05',
-            patients: 365
-        }, {
-            month: '2016-06',
-            patients: 421
-        }, {
-            month: '2016-07',
-            patients: 463
-        }, {
-            month: '2016-08',
-            patients: 594
-        }, {
-            month: '2016-09',
-            patients: 442
-        }, {
-            month: '2016-10',
-            patients: 456
-        }, {
-            month: '2016-11',
-            patients: 473
-        }, {
-            month: '2016-12',
-            patients: 341
-        }, ],
+        data: [<?php plotDataPerClinic('ob',2016,'GPSC'); ?>],
         xkey: 'month',
-        ykeys: ['patients'],
+        ykeys: ['GPSC'],
         labels: ['Booked Online'],
         lineColors: ['#e64a19'],
         smooth: false,

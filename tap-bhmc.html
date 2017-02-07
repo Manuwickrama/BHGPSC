@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+    <!-- Manu:1 Add this PhP to your page. This needs to be in every page you use SQL data. -->
+    <?php require_once('connection.php'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -184,18 +185,18 @@
                                             <tbody>
                                                 <tr>
                                                     <td><b>Broken Hill Medical Centre</b></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td>1,682</td>
-                                                    <td>1,592</td>
-                                                    <td>1,712</td>
-                                                    <td>1,604</td>
-                                                    <td>1,564</td>
-                                                    <td>1,600</td>
-                                                    <td>1,541</td>
-                                                    <td>1,422</td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
-                                                    <td style="background-color:#e09199;"></td>
+                                                    <td><?php put(tap,2017,Jan,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Feb,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Mar,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Apr,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,May,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Jun,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Jul,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Aug,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Sep,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Oct,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Nov,BHMC); ?></td>
+                                                    <td><?php put(tap,2017,Dec,BHMC); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -237,45 +238,9 @@
         element: 'bhmc-tap-2016',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [{
-            month: '2016-01',
-            patients: null
-        }, {
-            month: '2016-02',
-            patients: 1682
-        }, {
-            month: '2016-03',
-            patients: 1592
-        }, {
-            month: '2016-04',
-            patients: 1712
-        }, {
-            month: '2016-05',
-            patients: 1604
-        }, {
-            month: '2016-06',
-            patients: 1564
-        }, {
-            month: '2016-07',
-            patients: 1600
-        }, {
-            month: '2016-08',
-            patients: 1541
-        }, {
-            month: '2016-09',
-            patients: 1422
-        }, {
-            month: '2016-10',
-            patients: null
-        }, {
-            month: '2016-11',
-            patients: null
-        }, {
-            month: '2016-12',
-            patients: null
-        }, ],
+        data: [<?php plotDataPerClinic('tap',2017,'BHMC'); ?>],
         xkey: 'month',
-        ykeys: ['patients'],
+        ykeys: ['BHMC'],
         labels: ['Total Active Patients'],
         lineColors: ['#38b4ee'],
         smooth: false,
