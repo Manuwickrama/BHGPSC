@@ -55,7 +55,7 @@ try {
  * @param  string $Type   Type of Stat
  * @param  int $Year    Year
  * @param  string $Month   Month code
- * @param  string $Clinic  Clinic code
+ * @param  enum $Clinic  GPSC,SMC,BHMC
  * @param  int $ptCount Patient count
  * @return none          none
  */
@@ -89,11 +89,11 @@ function htmlNameFilter($Tag){
 }
 try {
 	/**
-	 * Manu: Function that is used in HTML (only) to output Patient Count.
- 	 * @param  string $Type   Type of Stat
+	 * Manu: Outputs Patient Count.
+ 	 * @param  string $Type   shs,ob,tap,...
 	 * @param  string $y Year as string
-	 * @param  string $m Month
-	 * @param  string $c Clinic Code
+	 * @param  enum $m Jan,Feb,...
+	 * @param  enum $c GPSC,SMC,BHMC
 	 * @return int    Patient Count
 	 */
 	function put($t,$y,$m,$c){
@@ -105,10 +105,10 @@ try {
 
 //plotData(ob,2017,Jan);
 /**
- * Manu: Function to generate a single plot data sample.
- * @param  string $t Type or Table
+ * Manu: Function to generate a single plot data sample for all clinics.
+ * @param  string $t Any String
  * @param  int $y Year
- * @param  string $m Month
+ * @param  enum $m Jan,Feb,...
  * @return string    Plot Data Sample
  */
 function plotData($t,$y,$m){
@@ -133,6 +133,14 @@ function plotData($t,$y,$m){
 	echo "}";
 }
 
+/**
+ * Manu: Function only produces a single plot point for a single clinic.
+ * @param  string $t Type
+ * @param  int $y Year
+ * @param  enum $m Month
+ * @param  enum $c GPSC,SMC,BHMC
+ * @return string    Plot data for Morris chart.
+ */
 function plotDataSingle($t,$y,$m,$c){
 	echo "{";
 	$mInt = monthIntoInt($m);
@@ -147,9 +155,10 @@ function plotDataSingle($t,$y,$m,$c){
 
 //plotDataArray('shs',2017);
 /**
- * Manu: Function to Query the entire data for a particular "Type".
+ * Manu: Outputs Plot Data. All 3 clinics.
  * It will print out the entire plot data set for the javascript plot used.
- * @param  string $Type Name for the table
+ * @param  string $Type shs,ob,tap,...
+ * @param  int $Year Year
  * @return string       Plot points string
  */
 function plotDataArray($Type,$Year){
@@ -166,6 +175,13 @@ function plotDataArray($Type,$Year){
 }
 //plotDataPerClinic('shs',2017,'BHMC');
 //plotDataPerClinic('shs',2017,'GPSC');
+/**
+ * Manu: Outputs Plot Data for a single clinic. Remember ykeys: GPSC,SMC,BHMC
+ * @param  string $Type   shs,ob,tap...
+ * @param  int $Year   Year
+ * @param  enum $Clinic GPSC,SMC,BHMC
+ * @return string         Plot Data
+ */
 function plotDataPerClinic($Type,$Year,$Clinic){
 	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 AND year=%i1 AND clinic=%s2 ORDER BY month", $Type, $Year, $Clinic);
 	//var_dump($plotPoints);
@@ -182,7 +198,7 @@ function plotDataPerClinic($Type,$Year,$Clinic){
 /**
  * Manu: Function to convert Month strings into int values.
  * Int values were required by the plot.
- * @param  string $Month Month by Code
+ * @param  enum $Month Jan,Feb,Mar,...
  * @return int    Month as Int
  */
 function monthIntoInt($Month){
