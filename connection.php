@@ -80,8 +80,10 @@ try {
 		}
 	}
 } catch (Exception $e) {
-	echo $e;
+	echo "Error in DB update :".$e;
 }
+
+
 /**
  * Manu: Function that filters the Name tag of inputs.
  * @param  string $Tag input Name tag
@@ -91,6 +93,7 @@ function htmlNameFilter($Tag){
 	$codes = explode('_', $Tag);
 	return $codes;
 }
+
 try {
 	/**
 	 * Manu: Outputs Patient Count.
@@ -104,10 +107,10 @@ try {
 		echo number_format(getCount($t,intval($y),$m,$c));
 	}
 } catch (Exception $e) {
-	echo $e;
+	echo "Error outputting values :".$e;
 }
 
-//plotData(ob,2017,Jan);
+
 /**
  * Manu: Function to generate a single plot data sample for all clinics.
  * @param  string $t Any String
@@ -157,7 +160,25 @@ function plotDataSingle($t,$y,$m,$c){
 	echo "}";
 }
 
-//plotDataArray('shs',2017);
+
+function plotDataDouble($t,$y,$m,$c1,$c2){
+	echo "{";
+	$mInt = monthIntoInt($m);
+	echo "month: '".$y."-".$mInt."',";
+	$figure1 = getCount($t,$y,$m,$c1);
+	if ($figure1===0) {
+		$figure1 = 'null';
+	}
+	$figure2 = getCount($t,$y,$m,$c2);
+	if ($figure2===0) {
+		$figure2 = 'null';
+	}
+	echo $c1.": ".$figure2.",";
+	echo $c2.": ".$figure2;
+	echo "}";
+}
+
+
 /**
  * Manu: Outputs Plot Data. All 3 clinics.
  * It will print out the entire plot data set for the javascript plot used.
@@ -165,7 +186,7 @@ function plotDataSingle($t,$y,$m,$c){
  * @param  int $Year Year
  * @return string       Plot points string
  */
-function plotDataArray($Type,$Year){
+function plotDataAllClinics($Type,$Year){
 	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 AND year=%i1 ORDER BY month", $Type, $Year);
 	//var_dump($plotPoints);
 	foreach ($plotPoints as $key => $value) {
@@ -177,8 +198,7 @@ function plotDataArray($Type,$Year){
 		echo ",";
 	}
 }
-//plotDataPerClinic('shs',2017,'BHMC');
-//plotDataPerClinic('shs',2017,'GPSC');
+
 /**
  * Manu: Outputs Plot Data for a single clinic. Remember ykeys: GPSC,SMC,BHMC
  * @param  string $Type   shs,ob,tap...
@@ -195,6 +215,19 @@ function plotDataPerClinic($Type,$Year,$Clinic){
 		$m = $value['month'];
 		$t = $value['type'];
 		plotDataSingle($t,$y,$m,$Clinic);
+		echo ",";
+	}
+}
+
+function plotDataTwoClinics($Type,$Year,$Clinic1,$Clinic2){
+	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 AND year=%i1 AND (clinic=%s2 OR clinic=%s3) ORDER BY month", $Type,$Year,$Clinic1,$Clinic2);
+	//var_dump($plotPoints);
+	foreach ($plotPoints as $key => $value) {
+		# code...
+		$y = $value['year'];
+		$m = $value['month'];
+		$t = $value['type'];
+		plotDataDouble($t,$y,$m,$Clinic1,$Clinic2);
 		echo ",";
 	}
 }
@@ -254,7 +287,6 @@ try {
 	 * Manu: This is the loop that updates/inserts the database records.
 	 * @var POST
 	 */
-	//var_dump($_POST);
 	foreach ($_POST as $name => $value) {
 		$T = htmlNameFilter($name)[0];
 	    $Y = intval(htmlNameFilter($name)[1]);
