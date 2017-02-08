@@ -325,10 +325,10 @@
         // Manu:4 The below function will auto generate plot data so there's no need to
         // do it again. Note we are calling the "shs" plot points. Give each graph a unique code like
         // "shs".
-        data: [<?php plotDataAllClinics('shs',2017); ?>],
+        data: [<?php plotDataTwoClinics('shs',2017,'GPSC','SMC'); ?>],
         xkey: 'month',
-        ykeys: ['BHGPSC', 'SMC', 'BHMC'],
-        labels: ['BHGPSC', 'SMC', 'BHMC'],
+        ykeys: ['GPSC', 'SMC'],
+        labels: ['BHGPSC', 'SMC'],
         lineColors: ['#e64a19', '#4caf50', '#38b4ee'],
         smooth: false,
         resize: true

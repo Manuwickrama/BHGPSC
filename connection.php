@@ -160,7 +160,15 @@ function plotDataSingle($t,$y,$m,$c){
 	echo "}";
 }
 
-
+/**
+ * Manu: Function outputs a single plot data point for 2 clinics.
+ * @param  string $t  Type
+ * @param  int $y  Year
+ * @param  enum $m  Jan,Feb,...
+ * @param  enum $c1 GPSC,SMC,BHMC
+ * @param  enum $c2 GPSC,SMC,BHMC
+ * @return string     Plot Point
+ */
 function plotDataDouble($t,$y,$m,$c1,$c2){
 	echo "{";
 	$mInt = monthIntoInt($m);
@@ -173,7 +181,7 @@ function plotDataDouble($t,$y,$m,$c1,$c2){
 	if ($figure2===0) {
 		$figure2 = 'null';
 	}
-	echo $c1.": ".$figure2.",";
+	echo $c1.": ".$figure1.",";
 	echo $c2.": ".$figure2;
 	echo "}";
 }
@@ -219,9 +227,16 @@ function plotDataPerClinic($Type,$Year,$Clinic){
 	}
 }
 
+/**
+ * Manu: Function outputs plot data for two selected clinics.
+ * @param  string $Type    Type
+ * @param  int $Year    Year
+ * @param  enum $Clinic1 GPSC,BHMC,SMC
+ * @param  enum $Clinic2 GPSC,BHMC,SMC
+ * @return string          Plot Data
+ */
 function plotDataTwoClinics($Type,$Year,$Clinic1,$Clinic2){
-	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE type=%s0 AND year=%i1 AND (clinic=%s2 OR clinic=%s3) ORDER BY month", $Type,$Year,$Clinic1,$Clinic2);
-	//var_dump($plotPoints);
+	$plotPoints = DB::query("SELECT * FROM OnlineBookings WHERE (type=%s0 AND year=%i1) AND (clinic=%s2 OR clinic=%s3)", $Type,$Year,$Clinic1,$Clinic2);
 	foreach ($plotPoints as $key => $value) {
 		# code...
 		$y = $value['year'];
