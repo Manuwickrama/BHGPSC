@@ -37,100 +37,7 @@
 
     <div id="wrapper">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Vapour Statistics</a>
-            </div>
-            <div class="navbar-pagetitle">
-                <h3>COMBINED
-                <small>Online Booking</small></h3>
-            </div>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#bhgpsc"><i class="fa fa-fw fa-arrows-v"></i> BHGPSC <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="bhgpsc" class="collapse">
-                            <li>
-                                <a href="new-pt-bhgpsc.html">New Patient Statistics</a>
-                            </li>
-                            <li>
-                                <a href="ob-stats-bhgpsc.html">Online Booking Statistics</a>
-                            </li>
-                            <li>
-                                <a href="shs-bhgpsc.html">Shared Health Summary Stats</a>
-                            </li>
-                            <li>
-                                <a href="tap-bhgpsc.html">Total Active Patients</a>
-                            </li>
-                        </ul>
-                    </li><!-- bhgpsc -->
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#smc"><i class="fa fa-fw fa-arrows-v"></i> SMC <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="smc" class="collapse">
-                            <li>
-                                <a href="new-pt-smc.html">New Patient Statistics</a>
-                            </li>
-                            <li>
-                                <a href="ob-stats-smc.html">Online Booking Statistics</a>
-                            </li>
-                            <li>
-                                <a href="shs-smc.html">Shared Health Summary Stats</a>
-                            </li>
-                            <li>
-                                <a href="tap-smc.html">Total Active Patients</a>
-                            </li>
-                        </ul>
-                    </li><!-- smc -->
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#bhmc"><i class="fa fa-fw fa-arrows-v"></i> BHMC <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="bhmc" class="collapse">
-                            <li>
-                                <a href="new-pt-bhmc.html">New Patient Statistics</a>
-                            </li>
-                            <li>
-                                <a href="ob-stats-bhmc.html">Online Booking Statistics</a>
-                            </li>
-                            <li>
-                                <a href="shs-bhmc.html">Shared Health Summary Stats</a>
-                            </li>
-                            <li>
-                                <a href="tap-bhmc.html">Total Active Patients</a>
-                            </li>
-                        </ul>
-                    </li><!-- bhmc -->
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#combined"><i class="fa fa-fw fa-arrows-v"></i> Combined <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="combined" class="collapse">
-                            <li>
-                                <a href="new-pt-comb.html">New Patient Statistics</a>
-                            </li>
-                            <li class="active">
-                                <a href="ob-stats-comb.html">Online Booking Statistics</a>
-                            </li>
-                            <li>
-                                <a href="shs-comb.html">Shared Health Summary Stats</a>
-                            </li>
-                            <li>
-                                <a href="tap-comb.html">Total Active Patients</a>
-                            </li>
-                        </ul>
-                    </li><!-- combined -->
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
+        <?php include ("header.php");?>
 
         <div id="page-wrapper">
 
@@ -213,26 +120,11 @@
                                                     <td><?php put(ob,2017,Nov,SMC); ?></td>
                                                     <td><?php put(ob,2017,Dec,SMC); ?></td>
                                                 </tr>
-                                                <tr>
-                                                    <td><b>Broken Hill Medical Centre</b></td>
-                                                    <td><?php put(ob,2017,Jan,BHMC); ?></td>
-                                                    <td><?php put(ob,2017,Feb,BHMC); ?></td>
-                                                    <td><?php put(ob,2017,Mar,BHMC); ?></td>
-                                                    <td><?php put(ob,2017,Apr,BHMC); ?></td>
-                                                    <td><?php put(ob,2017,May,BHMC); ?></td>
-                                                    <td><?php put(ob,2017,Jun,BHMC); ?></td>
-                                                    <td><?php put(ob,2017,Jul,BHMC); ?></td>
-                                                    <td><?php put(ob,2017,Aug,BHMC); ?></td>
-                                                    <td><?php put(ob,2017,Sep,BHMC); ?></td>
-                                                    <td><?php put(ob,2017,Oct,BHMC); ?></td>
-                                                    <td><?php put(ob,2017,Nov,BHMC); ?></td>
-                                                    <td><?php put(ob,2017,Dec,BHMC); ?></td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </div><!-- table responsive -->
 
-                                <div id="combined-ob-2015" style="width:100%;"></div>
+                                <div id="combined-ob-2017" style="width:100%;"></div>
 
                                 </div><!-- panel body -->
                             </div>
@@ -297,26 +189,80 @@
                                                     <td><?php put(ob,2016,Nov,SMC); ?></td>
                                                     <td><?php put(ob,2016,Dec,SMC); ?></td>
                                                 </tr>
-                                                <tr>
-                                                    <td><b>Broken Hill Medical Centre</b></td>
-                                                    <td><?php put(ob,2016,Jan,BHMC); ?></td>
-                                                    <td><?php put(ob,2016,Feb,BHMC); ?></td>
-                                                    <td><?php put(ob,2016,Mar,BHMC); ?></td>
-                                                    <td><?php put(ob,2016,Apr,BHMC); ?></td>
-                                                    <td><?php put(ob,2016,May,BHMC); ?></td>
-                                                    <td><?php put(ob,2016,Jun,BHMC); ?></td>
-                                                    <td><?php put(ob,2016,Jul,BHMC); ?></td>
-                                                    <td><?php put(ob,2016,Aug,BHMC); ?></td>
-                                                    <td><?php put(ob,2016,Sep,BHMC); ?></td>
-                                                    <td><?php put(ob,2016,Oct,BHMC); ?></td>
-                                                    <td><?php put(ob,2016,Nov,BHMC); ?></td>
-                                                    <td><?php put(ob,2016,Dec,BHMC); ?></td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </div><!-- table responsive -->
 
                                 <div id="combined-ob-2016" style="width:100%;"></div>
+
+                                </div><!-- panel body -->
+                            </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-yellow">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Combined Online Booking - 2015</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Site</th>
+                                                    <th>Jan</th>
+                                                    <th>Feb</th>
+                                                    <th>Mar</th>
+                                                    <th>Apr</th>
+                                                    <th>May</th>
+                                                    <th>Jun</th>
+                                                    <th>Jul</th>
+                                                    <th>Aug</th>
+                                                    <th>Sep</th>
+                                                    <th>Oct</th>
+                                                    <th>Nov</th>
+                                                    <th>Dec</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><b>Broken Hill GP Super Clinic</b></td>
+                                                    <td><?php put(ob,2015,Jan,GPSC); ?></td>
+                                                    <td><?php put(ob,2015,Feb,GPSC); ?></td>
+                                                    <td><?php put(ob,2015,Mar,GPSC); ?></td>
+                                                    <td><?php put(ob,2015,Apr,GPSC); ?></td>
+                                                    <td><?php put(ob,2015,May,GPSC); ?></td>
+                                                    <td><?php put(ob,2015,Jun,GPSC); ?></td>
+                                                    <td><?php put(ob,2015,Jul,GPSC); ?></td>
+                                                    <td><?php put(ob,2015,Aug,GPSC); ?></td>
+                                                    <td><?php put(ob,2015,Sep,GPSC); ?></td>
+                                                    <td><?php put(ob,2015,Oct,GPSC); ?></td>
+                                                    <td><?php put(ob,2015,Nov,GPSC); ?></td>
+                                                    <td><?php put(ob,2015,Dec,GPSC); ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>South Medical Centre</b></td>
+                                                    <td><?php put(ob,2015,Jan,SMC); ?></td>
+                                                    <td><?php put(ob,2015,Feb,SMC); ?></td>
+                                                    <td><?php put(ob,2015,Mar,SMC); ?></td>
+                                                    <td><?php put(ob,2015,Apr,SMC); ?></td>
+                                                    <td><?php put(ob,2015,May,SMC); ?></td>
+                                                    <td><?php put(ob,2015,Jun,SMC); ?></td>
+                                                    <td><?php put(ob,2015,Jul,SMC); ?></td>
+                                                    <td><?php put(ob,2015,Aug,SMC); ?></td>
+                                                    <td><?php put(ob,2015,Sep,SMC); ?></td>
+                                                    <td><?php put(ob,2015,Oct,SMC); ?></td>
+                                                    <td><?php put(ob,2015,Nov,SMC); ?></td>
+                                                    <td><?php put(ob,2015,Dec,SMC); ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- table responsive -->
+
+                                <div id="combined-ob-2015" style="width:100%;"></div>
 
                                 </div><!-- panel body -->
                             </div>
@@ -352,10 +298,10 @@
         element: 'combined-ob-2015',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: [<?php plotDataAllClinics('ob',2017); ?>],
+        data: [<?php plotDataAllClinics('ob',2015); ?>],
         xkey: 'month',
-        ykeys: ['BHGPSC', 'SMC', 'BHMC'],
-        labels: ['BHGPSC', 'SMC', 'BHMC'],
+        ykeys: ['BHGPSC', 'SMC'],
+        labels: ['BHGPSC', 'SMC'],
         lineColors: ['#e64a19', '#4caf50', '#38b4ee'],
         smooth: false,
         resize: true
@@ -373,8 +319,27 @@
         // the chart.
         data: [<?php plotDataAllClinics('ob',2016); ?>],
         xkey: 'month',
-        ykeys: ['BHGPSC', 'SMC', 'BHMC'],
-        labels: ['BHGPSC', 'SMC', 'BHMC'],
+        ykeys: ['BHGPSC', 'SMC'],
+        labels: ['BHGPSC', 'SMC'],
+        lineColors: ['#e64a19', '#4caf50', '#38b4ee'],
+        smooth: false,
+        resize: true
+    });
+    </script>
+
+        <script type="text/javascript">
+        // Combined New Patient Line Chart 2016
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'combined-ob-2017',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [<?php plotDataTwoClinics('ob',2017,'GPSC','SMC'); ?>],
+        xkey: 'month',
+        ykeys: ['GPSC', 'SMC'],
+        labels: ['BHGPSC', 'SMC'],
         lineColors: ['#e64a19', '#4caf50', '#38b4ee'],
         smooth: false,
         resize: true

@@ -37,100 +37,7 @@
 
     <div id="wrapper">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Vapour Statistics</a>
-            </div>
-            <div class="navbar-pagetitle">
-                <h3>BHGPSC
-                <small>Online Booking</small></h3>
-            </div>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#bhgpsc"><i class="fa fa-fw fa-arrows-v"></i> BHGPSC <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="bhgpsc" class="collapse">
-                            <li>
-                                <a href="new-pt-bhgpsc.html">New Patient Statistics</a>
-                            </li>
-                            <li class="active">
-                                <a href="ob-stats-bhgpsc.html">Online Booking Statistics</a>
-                            </li>
-                            <li>
-                                <a href="shs-bhgpsc.html">Shared Health Summary Stats</a>
-                            </li>
-                            <li>
-                                <a href="tap-bhgpsc.html">Total Active Patients</a>
-                            </li>
-                        </ul>
-                    </li><!-- bhgpsc -->
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#smc"><i class="fa fa-fw fa-arrows-v"></i> SMC <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="smc" class="collapse">
-                            <li>
-                                <a href="new-pt-smc.html">New Patient Statistics</a>
-                            </li>
-                            <li>
-                                <a href="ob-stats-smc.html">Online Booking Statistics</a>
-                            </li>
-                            <li>
-                                <a href="shs-smc.html">Shared Health Summary Stats</a>
-                            </li>
-                            <li>
-                                <a href="tap-smc.html">Total Active Patients</a>
-                            </li>
-                        </ul>
-                    </li><!-- smc -->
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#bhmc"><i class="fa fa-fw fa-arrows-v"></i> BHMC <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="bhmc" class="collapse">
-                            <li>
-                                <a href="new-pt-bhmc.html">New Patient Statistics</a>
-                            </li>
-                            <li>
-                                <a href="ob-stats-bhmc.html">Online Booking Statistics</a>
-                            </li>
-                            <li>
-                                <a href="shs-bhmc.html">Shared Health Summary Stats</a>
-                            </li>
-                            <li>
-                                <a href="tap-bhmc.html">Total Active Patients</a>
-                            </li>
-                        </ul>
-                    </li><!-- bhmc -->
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#combined"><i class="fa fa-fw fa-arrows-v"></i> Combined <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="combined" class="collapse">
-                            <li>
-                                <a href="new-pt-comb.html">New Patient Statistics</a>
-                            </li>
-                            <li>
-                                <a href="ob-stats-comb.html">Online Booking Statistics</a>
-                            </li>
-                            <li>
-                                <a href="shs-comb.html">Shared Health Summary Stats</a>
-                            </li>
-                            <li>
-                                <a href="tap-comb.html">Total Active Patients</a>
-                            </li>
-                        </ul>
-                    </li><!-- combined -->
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
+        <?php include ("header.php");?>
 
         <div id="page-wrapper">
 
@@ -141,7 +48,7 @@
                    
                 </div>
                 <!-- /.row -->
-
+                
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
@@ -160,106 +67,164 @@
                     <div class="col-lg-12">
                         <div class="panel panel-danger">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Broken Hill GP Super Clinic - Online Bookings</h3>
+                                    <h3 class="panel-title">Broken Hill GP Super Clinic Online Booking - 2017</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#2015" data-toggle="tab">2015</a>
-                                        </li>
-                                        <li><a href="#2016" data-toggle="tab">2016</a>
-                                        </li>
-                                    </ul>
-                                    
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade in active" id="2015">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered table-hover table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Site</th>
-                                                            <th>Jan</th>
-                                                            <th>Feb</th>
-                                                            <th>Mar</th>
-                                                            <th>Apr</th>
-                                                            <th>May</th>
-                                                            <th>Jun</th>
-                                                            <th>Jul</th>
-                                                            <th>Aug</th>
-                                                            <th>Sep</th>
-                                                            <th>Oct</th>
-                                                            <th>Nov</th>
-                                                            <th>Dec</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><b>Broken Hill GP Super Clinic</b></td>
-                                                            <td><?php put(ob,2017,Jan,GPSC); ?></td>
-                                                            <td><?php put(ob,2017,Feb,GPSC); ?></td>
-                                                            <td><?php put(ob,2017,Mar,GPSC); ?></td>
-                                                            <td><?php put(ob,2017,Apr,GPSC); ?></td>
-                                                            <td><?php put(ob,2017,May,GPSC); ?></td>
-                                                            <td><?php put(ob,2017,Jun,GPSC); ?></td>
-                                                            <td><?php put(ob,2017,Jul,GPSC); ?></td>
-                                                            <td><?php put(ob,2017,Aug,GPSC); ?></td>
-                                                            <td><?php put(ob,2017,Sep,GPSC); ?></td>
-                                                            <td><?php put(ob,2017,Oct,GPSC); ?></td>
-                                                            <td><?php put(ob,2017,Nov,GPSC); ?></td>
-                                                            <td><?php put(ob,2017,Dec,GPSC); ?></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div><!-- table responsive -->
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Site</th>
+                                                    <th>Jan</th>
+                                                    <th>Feb</th>
+                                                    <th>Mar</th>
+                                                    <th>Apr</th>
+                                                    <th>May</th>
+                                                    <th>Jun</th>
+                                                    <th>Jul</th>
+                                                    <th>Aug</th>
+                                                    <th>Sep</th>
+                                                    <th>Oct</th>
+                                                    <th>Nov</th>
+                                                    <th>Dec</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><b>Broken Hill GP Super Clinic</b></td>
+                                                    <td><?php put(ob,2017,Jan,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Feb,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Mar,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Apr,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,May,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Jun,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Jul,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Aug,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Sep,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Oct,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Nov,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Dec,GPSC); ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- table responsive -->
 
-                                            <div id="bhgpsc-ob-2015" style="width:100%;"></div>
-                                        </div><!-- tab-pane-2015 -->
-                                        <div class="tab-pane" id="2016">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered table-hover table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Site</th>
-                                                            <th>Jan</th>
-                                                            <th>Feb</th>
-                                                            <th>Mar</th>
-                                                            <th>Apr</th>
-                                                            <th>May</th>
-                                                            <th>Jun</th>
-                                                            <th>Jul</th>
-                                                            <th>Aug</th>
-                                                            <th>Sep</th>
-                                                            <th>Oct</th>
-                                                            <th>Nov</th>
-                                                            <th>Dec</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><b>Broken Hill GP Super Clinic</b></td>
-                                                            <td><?php put(ob,2016,Jan,GPSC); ?></td>
-                                                            <td><?php put(ob,2016,Feb,GPSC); ?></td>
-                                                            <td><?php put(ob,2016,Mar,GPSC); ?></td>
-                                                            <td><?php put(ob,2016,Apr,GPSC); ?></td>
-                                                            <td><?php put(ob,2016,May,GPSC); ?></td>
-                                                            <td><?php put(ob,2016,Jun,GPSC); ?></td>
-                                                            <td><?php put(ob,2016,Jul,GPSC); ?></td>
-                                                            <td><?php put(ob,2016,Aug,GPSC); ?></td>
-                                                            <td><?php put(ob,2016,Sep,GPSC); ?></td>
-                                                            <td><?php put(ob,2016,Oct,GPSC); ?></td>
-                                                            <td><?php put(ob,2016,Nov,GPSC); ?></td>
-                                                            <td><?php put(ob,2016,Dec,GPSC); ?></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div><!-- table responsive -->
+                                <div id="bhgpsc-ob-2017" style="width:100%;"></div>
 
-                                            <div id="bhgpsc-ob-2016" style="width:100%;"></div>
-                                        </div><!-- tab-pane-2016 -->
-                                    </div><!-- tab-content -->        
-                                </div><!-- Tabs body panel -->
-                             </div><!-- panel body -->
-                            </div><!-- col-lg -->
-                    </div><!-- row -->
+                                </div><!-- panel body -->
+                            </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Broken Hill GP Super Clinic Online Booking - 2016</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Site</th>
+                                                    <th>Jan</th>
+                                                    <th>Feb</th>
+                                                    <th>Mar</th>
+                                                    <th>Apr</th>
+                                                    <th>May</th>
+                                                    <th>Jun</th>
+                                                    <th>Jul</th>
+                                                    <th>Aug</th>
+                                                    <th>Sep</th>
+                                                    <th>Oct</th>
+                                                    <th>Nov</th>
+                                                    <th>Dec</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><b>Broken Hill GP Super Clinic</b></td>
+                                                    <td><?php put(ob,2016,Jan,GPSC); ?></td>
+                                                    <td><?php put(ob,2016,Feb,GPSC); ?></td>
+                                                    <td><?php put(ob,2016,Mar,GPSC); ?></td>
+                                                    <td><?php put(ob,2016,Apr,GPSC); ?></td>
+                                                    <td><?php put(ob,2016,May,GPSC); ?></td>
+                                                    <td><?php put(ob,2016,Jun,GPSC); ?></td>
+                                                    <td><?php put(ob,2016,Jul,GPSC); ?></td>
+                                                    <td><?php put(ob,2016,Aug,GPSC); ?></td>
+                                                    <td><?php put(ob,2016,Sep,GPSC); ?></td>
+                                                    <td><?php put(ob,2016,Oct,GPSC); ?></td>
+                                                    <td><?php put(ob,2016,Nov,GPSC); ?></td>
+                                                    <td><?php put(ob,2016,Dec,GPSC); ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- table responsive -->
+
+                                <div id="bhgpsc-ob-2016" style="width:100%;"></div>
+
+                                </div><!-- panel body -->
+                            </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Broken Hill GP Super Clinics - Online Bookings 2015</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Site</th>
+                                                    <th>Jan</th>
+                                                    <th>Feb</th>
+                                                    <th>Mar</th>
+                                                    <th>Apr</th>
+                                                    <th>May</th>
+                                                    <th>Jun</th>
+                                                    <th>Jul</th>
+                                                    <th>Aug</th>
+                                                    <th>Sep</th>
+                                                    <th>Oct</th>
+                                                    <th>Nov</th>
+                                                    <th>Dec</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><b>Broken Hill GP Super Clinic</b></td>
+                                                    <td><?php put(ob,2017,Jan,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Feb,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Mar,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Apr,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,May,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Jun,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Jul,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Aug,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Sep,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Oct,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Nov,GPSC); ?></td>
+                                                    <td><?php put(ob,2017,Dec,GPSC); ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- table responsive -->
+
+                                <div id="bhgpsc-ob-2015" style="width:100%;"></div>
+
+                                </div><!-- panel body -->
+                            </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+                
             </div>
             <!-- /.container-fluid -->
     
@@ -285,7 +250,7 @@
 
     Morris.Line({
         // ID of the element in which to draw the chart.
-        element: 'bhgpsc-ob-2015',
+        element: 'bhgpsc-ob-2017',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
         data: [<?php plotDataPerClinic('ob',2017,'GPSC'); ?>],
@@ -311,6 +276,28 @@
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
         data: [<?php plotDataPerClinic('ob',2016,'GPSC'); ?>],
+        xkey: 'month',
+        ykeys: ['GPSC'],
+        labels: ['Booked Online'],
+        lineColors: ['#e64a19'],
+        smooth: false,
+        resize: true
+    });
+    </script>
+
+        <script type="text/javascript">
+        // BHGPSC New Patient Line Chart
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+
+        
+        // BHGPSC 2016 New Patient Line Chart
+    Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'bhgpsc-ob-2015',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [<?php plotDataPerClinic('ob',2015,'GPSC'); ?>],
         xkey: 'month',
         ykeys: ['GPSC'],
         labels: ['Booked Online'],

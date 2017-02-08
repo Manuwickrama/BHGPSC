@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Manu:1 Add this PhP to your page. -->
+    <?php require_once('connection.php'); ?>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Vapour Statistics - Dashboard</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css?<?php echo time(); ?>" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css?<?php echo time(); ?>" rel="stylesheet">
+    
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Manu:2 Encapsulate everything in this form heading. -->
+    <form method="POST" enctype="multipart/form-data" action="">
+    <div id="wrapper">
+
+        <?php include ("header.php");?>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                  
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                    <h3 class="panel-title">New Patients :  2017</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Site</th>
+                                                    <th>Jan</th>
+                                                    <th>Feb</th>
+                                                    <th>Mar</th>
+                                                    <th>Apr</th>
+                                                    <th>May</th>
+                                                    <th>Jun</th>
+                                                    <th>Jul</th>
+                                                    <th>Aug</th>
+                                                    <th>Sep</th>
+                                                    <th>Oct</th>
+                                                    <th>Nov</th>
+                                                    <th>Dec</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><b>Broken Hill GP Super Clinic</b></td>
+                                                    <!-- Manu:3 All Input tags need a name like below and respective php tags. This enitire block can be easily included in one function call if needed. "shs" is the data on this page.
+
+                                                    Any input fields with the following "name" attribute (tag) will be entred into DB.
+                                                    The PHP component outputs the Patient Count for the requested stat.-->
+                                                    <td><input type="text" name="np.2017.Jan.GPSC" value="<?php put(np,2017,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Feb.GPSC" value="<?php put(np,2017,Feb,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Mar.GPSC" value="<?php put(np,2017,Mar,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Apr.GPSC" value="<?php put(np,2017,Apr,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.May.GPSC" value="<?php put(np,2017,May,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Jun.GPSC" value="<?php put(np,2017,Jun,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Jul.GPSC" value="<?php put(np,2017,Jul,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Aug.GPSC" value="<?php put(np,2017,Aug,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Sep.GPSC" value="<?php put(np,2017,Sep,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Oct.GPSC" value="<?php put(np,2017,Oct,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Nov.GPSC" value="<?php put(np,2017,Nov,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Dec.GPSC" value="<?php put(np,2017,Dec,GPSC); ?>"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>South Medical Centre</b></td>
+                                                    <td><input type="text" name="np.2017.Jan.SMC" value="<?php put(np,2017,Jan,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Feb.SMC" value="<?php put(np,2017,Feb,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Mar.SMC" value="<?php put(np,2017,Mar,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Apr.SMC" value="<?php put(np,2017,Apr,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.May.SMC" value="<?php put(np,2017,May,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Jun.SMC" value="<?php put(np,2017,Jun,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Jul.SMC" value="<?php put(np,2017,Jul,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Aug.SMC" value="<?php put(np,2017,Aug,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Sep.SMC" value="<?php put(np,2017,Sep,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Oct.SMC" value="<?php put(np,2017,Oct,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Nov.SMC" value="<?php put(np,2017,Nov,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2017.Dec.SMC" value="<?php put(np,2017,Dec,SMC); ?>"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- table responsive -->    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                    <h3 class="panel-title">New Patients :  2016</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Site</th>
+                                                    <th>Jan</th>
+                                                    <th>Feb</th>
+                                                    <th>Mar</th>
+                                                    <th>Apr</th>
+                                                    <th>May</th>
+                                                    <th>Jun</th>
+                                                    <th>Jul</th>
+                                                    <th>Aug</th>
+                                                    <th>Sep</th>
+                                                    <th>Oct</th>
+                                                    <th>Nov</th>
+                                                    <th>Dec</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><b>Broken Hill GP Super Clinic</b></td>
+                                                    <!-- Manu:3 All Input tags need a name like below and respective php tags. This enitire block can be easily included in one function call if needed. "shs" is the data on this page.
+
+                                                    Any input fields with the following "name" attribute (tag) will be entred into DB.
+                                                    The PHP component outputs the Patient Count for the requested stat.-->
+                                                    <td><input type="text" name="np.2016.Jan.GPSC" value="<?php put(np,2016,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Feb.GPSC" value="<?php put(np,2016,Feb,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Mar.GPSC" value="<?php put(np,2016,Mar,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Apr.GPSC" value="<?php put(np,2016,Apr,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.May.GPSC" value="<?php put(np,2016,May,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Jun.GPSC" value="<?php put(np,2016,Jun,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Jul.GPSC" value="<?php put(np,2016,Jul,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Aug.GPSC" value="<?php put(np,2016,Aug,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Sep.GPSC" value="<?php put(np,2016,Sep,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Oct.GPSC" value="<?php put(np,2016,Oct,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Nov.GPSC" value="<?php put(np,2016,Nov,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Dec.GPSC" value="<?php put(np,2016,Dec,GPSC); ?>"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>South Medical Centre</b></td>
+                                                    <td><input type="text" name="np.2016.Jan.SMC" value="<?php put(np,2016,Jan,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Feb.SMC" value="<?php put(np,2016,Feb,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Mar.SMC" value="<?php put(np,2016,Mar,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Apr.SMC" value="<?php put(np,2016,Apr,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.May.SMC" value="<?php put(np,2016,May,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Jun.SMC" value="<?php put(np,2016,Jun,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Jul.SMC" value="<?php put(np,2016,Jul,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Aug.SMC" value="<?php put(np,2016,Aug,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Sep.SMC" value="<?php put(np,2016,Sep,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Oct.SMC" value="<?php put(np,2016,Oct,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Nov.SMC" value="<?php put(np,2016,Nov,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2016.Dec.SMC" value="<?php put(np,2016,Dec,SMC); ?>"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- table responsive -->    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                    <h3 class="panel-title">New Patients :  2015</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Site</th>
+                                                    <th>Jan</th>
+                                                    <th>Feb</th>
+                                                    <th>Mar</th>
+                                                    <th>Apr</th>
+                                                    <th>May</th>
+                                                    <th>Jun</th>
+                                                    <th>Jul</th>
+                                                    <th>Aug</th>
+                                                    <th>Sep</th>
+                                                    <th>Oct</th>
+                                                    <th>Nov</th>
+                                                    <th>Dec</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><b>Broken Hill GP Super Clinic</b></td>
+                                                    <!-- Manu:3 All Input tags need a name like below and respective php tags. This enitire block can be easily included in one function call if needed. "shs" is the data on this page.
+
+                                                    Any input fields with the following "name" attribute (tag) will be entred into DB.
+                                                    The PHP component outputs the Patient Count for the requested stat.-->
+                                                    <td><input type="text" name="np.2015.Jan.GPSC" value="<?php put(np,2015,Jan,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Feb.GPSC" value="<?php put(np,2015,Feb,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Mar.GPSC" value="<?php put(np,2015,Mar,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Apr.GPSC" value="<?php put(np,2015,Apr,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.May.GPSC" value="<?php put(np,2015,May,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Jun.GPSC" value="<?php put(np,2015,Jun,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Jul.GPSC" value="<?php put(np,2015,Jul,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Aug.GPSC" value="<?php put(np,2015,Aug,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Sep.GPSC" value="<?php put(np,2015,Sep,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Oct.GPSC" value="<?php put(np,2015,Oct,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Nov.GPSC" value="<?php put(np,2015,Nov,GPSC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Dec.GPSC" value="<?php put(np,2015,Dec,GPSC); ?>"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>South Medical Centre</b></td>
+                                                    <td><input type="text" name="np.2015.Jan.SMC" value="<?php put(np,2015,Jan,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Feb.SMC" value="<?php put(np,2015,Feb,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Mar.SMC" value="<?php put(np,2015,Mar,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Apr.SMC" value="<?php put(np,2015,Apr,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.May.SMC" value="<?php put(np,2015,May,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Jun.SMC" value="<?php put(np,2015,Jun,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Jul.SMC" value="<?php put(np,2015,Jul,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Aug.SMC" value="<?php put(np,2015,Aug,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Sep.SMC" value="<?php put(np,2015,Sep,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Oct.SMC" value="<?php put(np,2015,Oct,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Nov.SMC" value="<?php put(np,2015,Nov,SMC); ?>"></td>
+                                                    <td><input type="text" name="np.2015.Dec.SMC" value="<?php put(np,2015,Dec,SMC); ?>"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- table responsive -->    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Manu:5 This input is hidden. Please add this to the bottom of the form. This is what makes the
+    form submit when you hit enter. -->
+    <input type="submit" name="loading" value="submit" hidden>
+    </form>
+</body>
+
+</html>
