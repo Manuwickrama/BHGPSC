@@ -24,6 +24,7 @@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#bhgpsc"><i class="fa fa-fw fa-arrows-v"></i> BHGPSC <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="bhgpsc" class="collapse">
+                            <li><a href="had-bhgpsc.html">Health Assessments Done</a></li>
                             <li><a href="new-pt-bhgpsc.html">New Patient Statistics</a></li>
                             <li><a href="ob-stats-bhgpsc.html">Online Booking Statistics</a></li>
                             <li><a href="shs-bhgpsc.html">Shared Health Summary Stats</a></li>
@@ -33,6 +34,7 @@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#smc"><i class="fa fa-fw fa-arrows-v"></i> SMC <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="smc" class="collapse">
+                            <li><a href="had-smc.html">Health Assessments Done</a></li>
                             <li><a href="new-pt-smc.html">New Patient Statistics</a></li>
                             <li><a href="ob-stats-smc.html">Online Booking Statistics</a></li>
                             <li><a href="shs-smc.html">Shared Health Summary Stats</a></li>
@@ -42,6 +44,7 @@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#combined"><i class="fa fa-fw fa-arrows-v"></i> Combined <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="combined" class="collapse">
+                            <li><a href="had-comb.html">Health Assessments Done</a></li>
                             <li><a href="new-pt-comb.html">New Patient Statistics</a></li>
                             <li><a href="ob-stats-comb.html">Online Booking Statistics</a></li>
                             <li><a href="shs-comb.html">Shared Health Summary Stats</a></li>
@@ -52,6 +55,7 @@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#admin"><i class="fa fa-fw fa-user"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="admin" class="collapse">
+                            <li><a href="had-admin.html">Health Assessments Done</a></li>
                             <li><a href="new-pt-admin.html">New Patient Statistics</a></li>
                             <li><a href="ob-stats-admin.html">Online Booking Statistics</a></li>
                             <li><a href="shs-admin.html">Shared Health Summary Stats</a></li>
